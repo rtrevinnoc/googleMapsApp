@@ -31,6 +31,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        /*val googleIdOption = GetGoogleIdOption.Builder()
+            .setFilterByAuthorizedAccounts(true)
+            .setServerClientId(baseContext.getString(R.string.default_web_client_id))
+            .build()
+
+        val request = GetCredentialRequest.Builder()
+            .addCredentialOption(googleIdOption)
+            .build()*/
+
         val mapFragment = supportFragmentManager.findFragmentById(R.id.sampleMap)  as? SupportMapFragment
         mapFragment?.getMapAsync { map ->
             addMarkers(map)

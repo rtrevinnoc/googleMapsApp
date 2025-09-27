@@ -5,16 +5,17 @@ plugins {
 
     // Add secrets-gradle-plugin here
     id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
+    id 'com.google.gms.google-services'
 }
 
 android {
-    compileSdk 32
+    compileSdk 33
     buildToolsVersion "29.0.3"
 
     defaultConfig {
         applicationId "com.google.codelabs.buildyourfirstmap"
         minSdk 21
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -38,6 +39,11 @@ dependencies {
 
     // Dependency to include Maps SDK for Android
     implementation 'com.google.android.gms:play-services-maps:18.0.2'
+    implementation 'com.google.firebase:firebase-firestore:26.0.1'
+    implementation 'com.google.firebase:firebase-auth:24.0.1'
+    implementation 'androidx.credentials:credentials:1.5.0'
+    implementation 'androidx.credentials:credentials-play-services-auth:1.5.0'
+    implementation 'com.google.android.libraries.identity.googleid:googleid:1.1.1'
 
     testImplementation 'junit:junit:4.13.2'
 }

@@ -15,24 +15,18 @@
 package com.google.codelabs.buildyourfirstmap.place
 
 import android.content.Context
-import com.google.codelabs.buildyourfirstmap.R
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
-import java.io.InputStream
-import java.io.InputStreamReader
+import com.google.firebase.Firebase
+import com.google.firebase.firestore.firestore
 
 class PlacesReader(private val context: Context) {
 
-    private val gson = Gson()
-
-    private val inputStream: InputStream
-        get() = context.resources.openRawResource(R.raw.places)
+    private val db = Firebase.firestore
 
     fun read(): List<Place> {
-        val itemType = object : TypeToken<List<PlaceResponse>>() {}.type
-        val reader = InputStreamReader(inputStream)
-        return gson.fromJson<List<PlaceResponse>>(reader, itemType).map {
-            it.toPlace()
-        }
+        val results = db.collection("places")
+            .get()
+            .getResult()
+        val placesResponse = results.documents.mapNotNull { it.toObject(PlaceResponse::class.java) }
+        return placesResponse.map { it.toPlace() }
     }
 }
