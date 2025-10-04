@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package com.google.codelabs.buildyourfirstmap
+package com.fcfm.agosto.aplicacionesmoviles
 
 import android.content.Context
 import android.graphics.Bitmap

@@ -32,4 +32,10 @@
         android:textSize="12sp"
         tools:text="Some Rating" />
 
+    <Button
+        android:id="@+id/addScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/addScore"/>
+
 </LinearLayout>

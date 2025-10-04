@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package com.google.codelabs.buildyourfirstmap.place
+package com.fcfm.agosto.aplicacionesmoviles.place
 
 import android.content.Context
 import com.google.firebase.Firebase
