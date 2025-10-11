@@ -17,8 +17,9 @@ package com.fcfm.agosto.aplicacionesmoviles.place
 import com.google.android.gms.maps.model.LatLng
 
 data class Place(
+    val id: String,
     val name: String,
     val latLng: LatLng,
     val address: String,
-    val rating: Float
+    var rating: Float
 )

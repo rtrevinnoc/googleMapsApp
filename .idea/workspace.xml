@@ -22,22 +22,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="68d2c4ed-9f1d-40ae-bb13-1f23e8071488" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/fcfm/agosto/aplicacionesmoviles/scores/Score.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/fcfm/agosto/aplicacionesmoviles/scores/ScoresReader.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/baseline_expand_less_24.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/baseline_expand_more_24.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/google-services.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/google-services.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/google/codelabs/buildyourfirstmap/BitmapHelper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fcfm/agosto/aplicacionesmoviles/BitmapHelper.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/google/codelabs/buildyourfirstmap/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fcfm/agosto/aplicacionesmoviles/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/google/codelabs/buildyourfirstmap/MarkerPopupAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fcfm/agosto/aplicacionesmoviles/MarkerPopupAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/google/codelabs/buildyourfirstmap/place/Place.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fcfm/agosto/aplicacionesmoviles/place/Place.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/google/codelabs/buildyourfirstmap/place/PlacesReader.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fcfm/agosto/aplicacionesmoviles/place/PlacesReader.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/google/codelabs/buildyourfirstmap/place/PlacesResponse.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fcfm/agosto/aplicacionesmoviles/place/PlacesResponse.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/fcfm/agosto/aplicacionesmoviles/MarkerPopupAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fcfm/agosto/aplicacionesmoviles/MarkerPopupAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/fcfm/agosto/aplicacionesmoviles/place/Place.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fcfm/agosto/aplicacionesmoviles/place/Place.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/fcfm/agosto/aplicacionesmoviles/place/PlacesReader.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fcfm/agosto/aplicacionesmoviles/place/PlacesReader.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/fcfm/agosto/aplicacionesmoviles/place/PlacesResponse.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fcfm/agosto/aplicacionesmoviles/place/PlacesResponse.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/fcfm/agosto/aplicacionesmoviles/scores/Score.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fcfm/agosto/aplicacionesmoviles/scores/Score.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/fcfm/agosto/aplicacionesmoviles/scores/ScoresReader.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fcfm/agosto/aplicacionesmoviles/scores/ScoresReader.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/marker_popup.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/marker_popup.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -328,12 +329,12 @@
       <map>
         <entry key="com.fcfm.agosto.aplicacionesmoviles">
           <value>
-            <CheckInfo lastCheckTimestamp="1759535224825" />
+            <CheckInfo lastCheckTimestamp="1760136260256" />
           </value>
         </entry>
         <entry key="com.fcfm.agosto.aplicacionesmoviles.test">
           <value>
-            <CheckInfo lastCheckTimestamp="1759535224828" />
+            <CheckInfo lastCheckTimestamp="1760136260263" />
           </value>
         </entry>
         <entry key="com.google.codelabs.buildyourfirstmap">

@@ -1,6 +1,7 @@
 package com.fcfm.agosto.aplicacionesmoviles.scores
 
 import android.content.Context
+import com.fcfm.agosto.aplicacionesmoviles.R
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
@@ -10,21 +11,21 @@ import okhttp3.ResponseBody
 
 class ScoresReader(private val context: Context) {
 
-    private val sheetUrl = "https://script.google.com/macros/s/AKfycbz2FoM2a0wCrreUGzvVcca9IkavoZlPk7Ifn2nFXscSx1MX3LNokO9QgGbTt1lFL-DG/exec"
+    private val sheetUrl = R.string.scoresSheetUrl.toString()
     private val client = OkHttpClient()
     private val json = Json { ignoreUnknownKeys = true }
 
-    fun doGet(): List<Score> {
+    fun doGet(): Float {
         val request = Request.Builder()
             .url(sheetUrl)
             .build()
 
         client.newCall(request).execute().use { response ->
-            return json.decodeFromString<List<Score>>(response.body.toString())
+            return response.body.toString().toFloat()//json.decodeFromString<List<Score>>(response.body.toString())
         }
     }
 
-    fun doPost(score: Score): ResponseBody {
+    fun doPost(score: Score): Float {
         val jsonString = json.encodeToString<Score>(score)
         val body = jsonString.toRequestBody("application/json".toMediaType())
 
@@ -34,7 +35,7 @@ class ScoresReader(private val context: Context) {
             .build()
 
         client.newCall(request).execute().use { response ->
-            return response.body
+            return response.body.toString().toFloat()
         }
     }
 }

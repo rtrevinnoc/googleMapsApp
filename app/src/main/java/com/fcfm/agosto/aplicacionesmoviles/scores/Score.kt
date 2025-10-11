@@ -14,12 +14,12 @@
 
 package com.fcfm.agosto.aplicacionesmoviles.scores
 
-import com.google.android.gms.maps.model.LatLng
 import kotlinx.serialization.Serializable
 
 @Serializable
 data class Score(
+    val placeId: String,
     val username: String,
     val score: Float,
-    val timestamp: String
+    val timestamp: String,
 )

@@ -17,6 +17,7 @@ package com.fcfm.agosto.aplicacionesmoviles.place
 import com.google.android.gms.maps.model.LatLng
 
 data class PlaceResponse(
+    val id: String,
     val geometry: Geometry,
     val name: String,
     val vicinity: String,
@@ -34,6 +35,7 @@ data class PlaceResponse(
 }
 
 fun PlaceResponse.toPlace(): Place = Place(
+    id = id,
     name = name,
     latLng = LatLng(geometry.location.lat, geometry.location.lng),
     address = vicinity,
