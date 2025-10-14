@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "766813132621",
-    "project_id": "aplicaciones-moviles-2025-fcfm",
-    "storage_bucket": "aplicaciones-moviles-2025-fcfm.firebasestorage.app"
+    "project_number": "227733419247",
+    "project_id": "mapa-b55ce",
+    "storage_bucket": "mapa-b55ce.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:766813132621:android:3553ff836e98cad71e4904",
+        "mobilesdk_app_id": "1:227733419247:android:9d36205b26cba878bcd71a",
         "android_client_info": {
           "package_name": "com.google.codelabs.buildyourfirstmap"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDf4s5IIIhk-sUtNe2tf0p6eFgwwj6hf3A"
+          "current_key": "AIzaSyB0DaqxdJ68too93qmFaw7G7Q43MiNk1UE"
         }
       ],
       "services": {

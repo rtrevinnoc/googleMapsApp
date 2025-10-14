@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <EditText
+        android:id="@+id/edit_text_nickname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Apodo" />
+
+    <TextView
+        android:id="@+id/text_view_vicinity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textColor="?android:attr/textColorSecondary"
+        tools:text="Av. Universidad 911, San Nicolás de los Garza" />
+
+    <EditText
+        android:id="@+id/edit_text_comment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Comentario" />
+
+    <RatingBar
+        android:id="@+id/rating_bar_review"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:numStars="5"
+        android:stepSize="1.0" />
+
+</LinearLayout>
