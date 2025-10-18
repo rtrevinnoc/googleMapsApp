@@ -4,11 +4,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+    <Button
+        android:id = "@+id/signIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text= "@string/signIn"/>
 
     <fragment
         class="com.google.android.gms.maps.SupportMapFragment"
         android:id="@+id/sampleMap"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
 
 </FrameLayout>

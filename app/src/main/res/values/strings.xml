@@ -16,4 +16,5 @@
 
 <resources>
   <string name="app_name">BuildYourFirstMap</string>
+  <string name="default_web_client_id">default</string>
 </resources>

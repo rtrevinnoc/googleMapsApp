@@ -14,7 +14,7 @@
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
-        tools:text="Title" />
+        tools:text="Title Marker Pop Up" />
 
     <TextView
         android:id="@+id/marker_popup_address"
