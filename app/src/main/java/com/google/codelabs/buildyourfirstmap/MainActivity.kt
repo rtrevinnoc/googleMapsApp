@@ -9,6 +9,15 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 
+/*Equipo:
+    Carlos Humberto Mendez Hernandez
+    Luis David Galindo Garcia
+    Jenifer Pamela Carrillo Garcia
+
+ */
+
+
+
 class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 
 
