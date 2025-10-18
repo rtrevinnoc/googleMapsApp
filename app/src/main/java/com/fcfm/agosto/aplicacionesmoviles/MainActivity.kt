@@ -15,6 +15,7 @@
 package com.fcfm.agosto.aplicacionesmoviles
 
 import android.content.ContentValues.TAG
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -60,10 +61,15 @@ class MainActivity : AppCompatActivity() {
         client = GoogleSignIn.getClient(this, options)
 
         findViewById<Button>(R.id.signIn).setOnClickListener {
-            signIn()
+            if (auth.currentUser != null) {
+                val userDetail = Intent(this, DetalleDeUsuario::class.java)
+                startActivity(userDetail)
+            } else {
+                signIn()
+            }
         }
 
-        val mapFragment = supportFragmentManager.findFragmentById(R.id.sampleMap)  as? SupportMapFragment
+        val mapFragment = supportFragmentManager.findFragmentById(R.id.map)  as? SupportMapFragment
         mapFragment?.getMapAsync { map ->
             addMarkers(map)
             map.setInfoWindowAdapter(MarkerPopupAdapter(this))
