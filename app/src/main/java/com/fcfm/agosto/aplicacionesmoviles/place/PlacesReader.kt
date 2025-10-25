@@ -18,15 +18,14 @@ import android.content.Context
 import com.fcfm.agosto.aplicacionesmoviles.R
 import com.google.firebase.Firebase
 import com.google.firebase.firestore.firestore
+import kotlinx.coroutines.tasks.await
 
 class PlacesReader(private val context: Context) {
 
     private val db = Firebase.firestore
 
-    fun read(): List<Place> {
-        val results = db.collection(R.string.placesFirestore.toString())
-            .get()
-            .getResult()
+    suspend fun read(): List<Place> {
+        val results = db.collection(R.string.placesFirestore.toString()).get().await();
         val placesResponse = results.documents.mapNotNull { it.toObject(PlaceResponse::class.java) }
         return placesResponse.map { it.toPlace() }
     }
