@@ -1,10 +1,11 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
-
-    // Add secrets-gradle-plugin here
-    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
+    id 'org.jetbrains.kotlin.plugin.serialization' version '2.2.21'
     id 'com.google.gms.google-services'
+    id 'org.jetbrains.kotlin.android'
+    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
+
 }
 
 android {
@@ -13,25 +14,13 @@ android {
 
     defaultConfig {
         applicationId "com.google.codelabs.buildyourfirstmap"
-        minSdk 24
+        minSdk 26
         targetSdk 36
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        def localProps = new Properties()
-        def localPropsFile = rootProject.file("local.properties")
-        if (localPropsFile.exists()) {
-            localProps.load(new FileInputStream(localPropsFile))
-            def mapsKey = localProps.getProperty("MAPS_API_KEY", "")
-            if (mapsKey != "") {
-                resValue "string", "google_maps_key", mapsKey
-            } else {
-                println("MAPS_API_KEY not found in local.properties")
-            }
-        } else {
-            println("local.properties file not found")
-        }
+
     }
 
     buildFeatures {
@@ -58,14 +47,31 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.4.1'
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'androidx.appcompat:appcompat:1.7.1'
+    implementation 'androidx.core:core-ktx:1.17.0'
+    implementation 'com.google.code.gson:gson:2.13.2'
 
+    implementation 'com.google.android.material:material:1.13.0'
+    implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.9.0'
+    implementation 'com.squareup.okhttp3:okhttp:5.3.0'
     // Dependency to include Maps SDK for Android
-    implementation 'com.google.android.gms:play-services-maps:18.0.2'
-    implementation 'com.google.firebase:firebase-firestore:26.0.1'
+    implementation 'com.google.android.gms:play-services-maps:19.2.0'
+    implementation 'com.google.android.gms:play-services-location:21.3.0'
+    implementation 'com.google.android.gms:play-services-auth:21.4.0'
+
+    implementation "androidx.credentials:credentials:1.5.0"
+    implementation "androidx.credentials:credentials-play-services-auth:1.5.0"
+    implementation "com.google.firebase:firebase-auth:24.0.1"
+
+    implementation "com.google.android.libraries.identity.googleid:googleid:1.1.0"
+
+
+    implementation 'com.google.android.material:material:1.13.0'
+
+    implementation 'com.google.firebase:firebase-firestore:26.0.2'
+    implementation 'com.google.firebase:firebase-common-ktx:21.0.0'
     implementation 'com.google.firebase:firebase-auth:24.0.1'
+
     implementation 'androidx.credentials:credentials:1.5.0'
     implementation 'androidx.credentials:credentials-play-services-auth:1.5.0'
     implementation 'com.google.android.libraries.identity.googleid:googleid:1.1.1'
@@ -76,3 +82,4 @@ dependencies {
 kotlin {
     jvmToolchain(17)
 }
+

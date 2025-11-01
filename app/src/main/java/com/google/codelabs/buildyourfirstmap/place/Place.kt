@@ -15,10 +15,17 @@
 package com.google.codelabs.buildyourfirstmap.place
 
 import com.google.android.gms.maps.model.LatLng
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class Place(
-    val name: String,
-    val latLng: LatLng,
-    val address: String,
-    val rating: Float
-)
+    val id: String = "",              // ID
+    val name: String = "",            // Nombre del lugar
+    val address: String = "",         // Dirección
+    val lat: Double = 0.0,            // Latitud
+    val lng: Double = 0.0,            // Longitud
+    var rating: Float = 0f            // Promedio de rating actual
+) {
+    val latLng: LatLng
+        get() = LatLng(lat, lng)
+}

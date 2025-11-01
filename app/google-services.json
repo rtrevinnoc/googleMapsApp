@@ -1,26 +1,44 @@
 {
   "project_info": {
-    "project_number": "766813132621",
-    "project_id": "aplicaciones-moviles-2025-fcfm",
-    "storage_bucket": "aplicaciones-moviles-2025-fcfm.firebasestorage.app"
+    "project_number": "469157977411",
+    "project_id": "buildyourfirstmap-4ab6b",
+    "storage_bucket": "buildyourfirstmap-4ab6b.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:766813132621:android:3553ff836e98cad71e4904",
+        "mobilesdk_app_id": "1:469157977411:android:1e8827232685b2c5a8a3f6",
         "android_client_info": {
           "package_name": "com.google.codelabs.buildyourfirstmap"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "469157977411-86oelalhthpt3cudopt1b90141ben5gt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.google.codelabs.buildyourfirstmap",
+            "certificate_hash": "5ff0a7098ad4d047c1ceee6b82f814acfa3038d0"
+          }
+        },
+        {
+          "client_id": "469157977411-vo0pi25d83q9lpkgnag3ei7pcclh6j3i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyDf4s5IIIhk-sUtNe2tf0p6eFgwwj6hf3A"
+          "current_key": "AIzaSyD_i8EtLYpLdV0IErTKdirrv-k3zO1cOS8"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "469157977411-vo0pi25d83q9lpkgnag3ei7pcclh6j3i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

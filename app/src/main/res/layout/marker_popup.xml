@@ -1,35 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:gravity="center_horizontal"
-    android:padding="8dp">
+    android:orientation="vertical"
+    android:background="@drawable/bg_popup"
+    android:padding="12dp">
 
     <TextView
         android:id="@+id/marker_popup_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="16sp"
+        android:text="Nombre del lugar"
         android:textStyle="bold"
-        tools:text="Title" />
+        android:textColor="@android:color/black"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/marker_popup_address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="12sp"
-        tools:text="Some Address" />
+        android:layout_marginTop="2dp"
+        android:text="Dirección del lugar"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="13sp" />
 
     <TextView
         android:id="@+id/marker_popup_rating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="12sp"
-        tools:text="Some Rating" />
+        android:layout_marginTop="4dp"
+        android:text="Puntuación promedio: -"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/btnRate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:backgroundTint="@color/teal_700"
+        android:paddingHorizontal="10dp"
+        android:text="Calificar"
+        android:textColor="@android:color/white"
+        android:textSize="13sp" />
 
 </LinearLayout>
+

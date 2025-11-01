@@ -14,19 +14,32 @@
 
 package com.google.codelabs.buildyourfirstmap.place
 
+import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.coroutines.tasks.await
 import android.content.Context
 import com.google.firebase.Firebase
 import com.google.firebase.firestore.firestore
 
 class PlacesReader(private val context: Context) {
 
-    private val db = Firebase.firestore
+    private val db = FirebaseFirestore.getInstance()
 
-    fun read(): List<Place> {
-        val results = db.collection("places")
-            .get()
-            .getResult()
-        val placesResponse = results.documents.mapNotNull { it.toObject(PlaceResponse::class.java) }
-        return placesResponse.map { it.toPlace() }
+    suspend fun read(): List<Place> {
+        val places = mutableListOf<Place>()
+        val snapshot = db.collection("places").get().await()
+
+        for (doc in snapshot.documents) {
+            val place = Place(
+                id = doc.id, //ID del documento
+                name = doc.getString("name") ?: "",
+                address = doc.getString("address") ?: "",
+                lat = doc.getDouble("lat") ?: 0.0,
+                lng = doc.getDouble("lng") ?: 0.0,
+                rating = (doc.getDouble("rating") ?: 0.0).toFloat()
+            )
+            places.add(place)
+        }
+
+        return places
     }
 }

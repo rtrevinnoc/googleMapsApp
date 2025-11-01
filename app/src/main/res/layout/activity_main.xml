@@ -1,14 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <!-- Fragmento del mapa -->
     <fragment
-        class="com.google.android.gms.maps.SupportMapFragment"
         android:id="@+id/map"
+        class="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSignIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center_horizontal"
+        android:layout_marginTop="50dp"
+        android:text="Iniciar sesión con Google"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        app:backgroundTint="@color/teal_700"
+        app:icon="@drawable/ic_google"
+        app:iconGravity="textStart"
+        app:iconPadding="8dp" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnMapType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|start"
+        android:layout_marginBottom="60dp"
+        android:layout_marginStart="20dp"
+        app:srcCompat="@drawable/ic_map"
+        app:backgroundTint="@color/teal_700"
+        app:tint="@android:color/white"
+        android:contentDescription="Cambiar tipo de mapa" />
+
+    <!-- FAB para recargar lugares -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnReload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|start"
+        android:layout_marginBottom="120dp"
+        android:layout_marginStart="20dp"
+        app:srcCompat="@drawable/ic_refresh"
+        app:backgroundTint="@color/teal_700"
+        app:tint="@android:color/white"
+        android:contentDescription="Recargar lugares" />
 
 </FrameLayout>
