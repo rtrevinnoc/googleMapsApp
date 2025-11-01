@@ -49,9 +49,14 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.6'
 
     // Dependency to include Maps SDK for Android
-    implementation 'com.google.android.gms:play-services-maps:18.0.2'
+    implementation 'com.google.android.gms:play-services-maps:18.2.0'
+    implementation 'com.google.android.gms:play-services-location:21.0.1'
+
+    //Firebase
     implementation 'com.google.firebase:firebase-firestore:26.0.1'
     implementation 'com.google.firebase:firebase-auth:24.0.1'
+
+    //Google Identity
     implementation 'androidx.credentials:credentials:1.5.0'
     implementation 'androidx.credentials:credentials-play-services-auth:1.5.0'
     implementation 'com.google.android.libraries.identity.googleid:googleid:1.1.1'
@@ -62,3 +67,5 @@ dependencies {
 kotlin {
     jvmToolchain(17)
 }
+
+apply plugin: 'com.google.gms.google-services'

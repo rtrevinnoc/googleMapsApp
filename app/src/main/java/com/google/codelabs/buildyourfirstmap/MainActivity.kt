@@ -1,9 +1,6 @@
 package com.google.codelabs.buildyourfirstmap
 /*
-Equipo:
-    Manuel Acosta
-    Angel Sustaita
-    Luis Hernandez
+Manuel Acosta
 */
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
