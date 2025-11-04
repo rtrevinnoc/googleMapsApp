@@ -18,6 +18,20 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        def localProps = new Properties()
+        def localPropsFile = rootProject.file("local.properties")
+        if (localPropsFile.exists()) {
+            localProps.load(new FileInputStream(localPropsFile))
+            def mapsKey = localProps.getProperty("MAPS_API_KEY", "")
+            if (mapsKey != "") {
+                resValue "string", "google_maps_key", mapsKey
+            } else {
+                println("MAPS_API_KEY not found in local.properties")
+            }
+        } else {
+            println("local.properties file not found")
+        }
     }
 
     buildFeatures {

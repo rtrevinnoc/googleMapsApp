@@ -39,7 +39,14 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 
         val monterrey = LatLng(25.6866, -100.3161)
 
-        mMap.addMarker(MarkerOptions().position(monterrey).title("Marcador en Monterrey"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(monterrey, 10f))
+        // Agregamos un marcador simple
+        mMap.addMarker(
+            MarkerOptions()
+                .position(monterrey)
+                .title("Marcador en Monterrey")
+        )
+
+        // Movemos la cámara al marcador
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(monterrey, 12f))
     }
 }
