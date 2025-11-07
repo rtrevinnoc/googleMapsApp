@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/input_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Título" />
+
+        <EditText
+            android:id="@+id/input_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Descripción"
+            android:inputType="textMultiLine"
+            android:minLines="3"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/text_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fecha (toca para cambiar)"
+            android:layout_marginTop="12dp" />
+
+        <!-- Nuevo: botón para elegir ubicación en el mapa -->
+        <Button
+            android:id="@+id/button_pick_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Seleccionar ubicación en mapa"
+            android:layout_marginTop="12dp" />
+
+        <TextView
+            android:id="@+id/text_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lat: 0.00000, Lng: 0.00000"
+            android:layout_marginTop="8dp" />
+
+        <Button
+            android:id="@+id/button_pick_images"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Seleccionar imágenes"
+            android:layout_marginTop="12dp" />
+
+        <TextView
+            android:id="@+id/text_images_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fotos seleccionadas: 0"
+            android:layout_marginTop="8dp" />
+
+        <Button
+            android:id="@+id/button_save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Guardar Recuerdo"
+            android:layout_marginTop="16dp" />
+
+    </LinearLayout>
+</ScrollView>

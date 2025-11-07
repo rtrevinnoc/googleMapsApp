@@ -11,4 +11,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
+    <!-- Botón agregado para crear una nueva memoria -->
+    <Button
+        android:id="@+id/button_add_memory"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_gravity="top|end"
+        android:layout_margin="16dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:text="+"
+        android:textColor="@android:color/white"
+        android:textSize="24sp" />
+
 </FrameLayout>
