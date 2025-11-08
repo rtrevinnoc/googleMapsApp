@@ -1,26 +1,44 @@
 {
   "project_info": {
-    "project_number": "236540016091",
-    "project_id": "sistemas-moviles-s2025-fcfm",
-    "storage_bucket": "sistemas-moviles-s2025-fcfm.firebasestorage.app"
+    "project_number": "766813132621",
+    "project_id": "aplicaciones-moviles-2025-fcfm",
+    "storage_bucket": "aplicaciones-moviles-2025-fcfm.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:236540016091:android:668257228361a899d4e3fe",
+        "mobilesdk_app_id": "1:766813132621:android:73844b4891fb320f1e4904",
         "android_client_info": {
-          "package_name": "com.google.codelabs.buildyourfirstmap"
+          "package_name": "com.fcfm.agosto.aplicacionesmoviles"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "766813132621-a7okp53n5d3021itigs9t1m6patihc7p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.fcfm.agosto.aplicacionesmoviles",
+            "certificate_hash": "bcad8dd25d238d7c71f14127273ed419a7f436ed"
+          }
+        },
+        {
+          "client_id": "766813132621-c11b37sstv28mgps70dbkgoo3qtsmfb2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyCFYSd0JpdwdrlSD0mbBpWLqXn4F69QRCM"
+          "current_key": "AIzaSyDf4s5IIIhk-sUtNe2tf0p6eFgwwj6hf3A"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "766813132621-c11b37sstv28mgps70dbkgoo3qtsmfb2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

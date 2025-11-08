@@ -13,49 +13,63 @@
 // limitations under the License.
 package com.google.codelabs.buildyourfirstmap
 
+import android.content.Intent
 import com.google.firebase.auth.FirebaseAuth
 
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.MarkerOptions
-import com.google.codelabs.buildyourfirstmap.place.Place
-import com.google.codelabs.buildyourfirstmap.place.PlacesReader
-import com.google.firebase.Firebase
-import android.credentials.GetCredentialRequest
+import android.util.Log
+import android.view.LayoutInflater
+import android.widget.Button
+import android.widget.EditText
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AlertDialog
+import androidx.credentials.CredentialManager
+import androidx.lifecycle.lifecycleScope
+import com.google.codelabs.buildyourfirstmap.DetalleDeUsuario
+import com.google.codelabs.buildyourfirstmap.MarkerPopupAdapter
+import com.google.codelabs.buildyourfirstmap.R
+import com.google.codelabs.buildyourfirstmap.place.PlacesReader
+import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.libraries.identity.googleid.GetGoogleIdOption
+import com.google.android.libraries.identity.googleid.GoogleIdTokenCredential
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.GoogleAuthProvider
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import okhttp3.Dispatcher
 
 class MainActivity : AppCompatActivity() {
-    private val places: List<Place> by lazy {
-        PlacesReader(this).read()
-    }
     private lateinit var auth: FirebaseAuth
-    private lateinit var client = GoogleSignInClient
-
-    private lateinit var user : FirebaseUser?
+    //private lateinit var client = GoogleSignInClient
+    private val places: MutableList<com.fcfm.agosto.aplicacionesmoviles.place.Place> = mutableListOf()
+    private lateinit var credentialManager: CredentialManager
+    private var user: FirebaseUser? = null
+    private var placesReader = PlacesReader(this@MainActivity);
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val auth = FirebaseAuth.getInstance()
+        auth = FirebaseAuth.getInstance()
+        credentialManager = CredentialManager.create(this);
 
-        val options = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(getString(resId = R.string.default_web_client_id))
-            .requestEmail()
-            .build()
-
-        val client = GoogleSignIN.getClient(activity = this, options)
-
-        findViewById<Button>(id = R.id.signIn).setOnClickListener {
-            signIn()
+        findViewById<Button>(R.id.signIn).setOnClickListener {
+            if (auth.currentUser != null) {
+                startActivity(Intent(this, DetalleDeUsuario::class.java))
+            } else {
+                signIn()
+            }
         }
+
+        loadPlacesAndMap()
+    }
 
 
   /*      val googleIdOption = GetGoogleIdOption.Builder()
@@ -74,10 +88,17 @@ class MainActivity : AppCompatActivity() {
             Log.w(TAG, "Credential is not of type Google ID!")
         }*/
 
-        val mapFragment = supportFragmentManager.findFragmentById(R.id.sampleMap)  as? SupportMapFragment
-        mapFragment?.getMapAsync { map ->
-            addMarkers(map)
-            map.setInfoWindowAdapter(MarkerPopupAdapter(this))
+    private fun loadPlacesAndMap() {
+        lifecycleScope.launch(Dispatchers.IO) {
+            try {
+                val placesList = placesReader.read()
+
+                places.clear()
+                places.addAll(placesList)
+                setupMap()
+            } catch (e: Exception) {
+                Log.e("Firestore", "Error loading places", e)
+            }
         }
     }
 
@@ -93,6 +114,48 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun setupMap() {
+        val mapFragment = supportFragmentManager
+            .findFragmentById(R.id.map) as? SupportMapFragment
+
+        mapFragment?.getMapAsync { map ->
+            map.setOnMapLongClickListener { latLng ->
+                val view = LayoutInflater.from(this).inflate(R.layout.new_place_form, null)
+                val newTitle = view.findViewById<EditText>(R.id.new_title)
+                val newAddress = view.findViewById<EditText>(R.id.new_address)
+                val newRating = view.findViewById<EditText>(R.id.new_rating)
+
+
+                AlertDialog.Builder(this)
+                    .setTitle("New Place")
+                    .setView(view)
+                    .setPositiveButton("Agregar") { _, _, ->
+                        val title = newTitle.text.toString().ifBlank { "Default Title" }
+                        val address = newAddress.text.toString().ifBlank { "Default Address" }
+                        val rating = newRating.text.toString().ifBlank { "0.0" } .toFloat()
+
+                        placesReader.addPlace(title, latLng, address, rating);
+
+                        lifecycleScope.launch(Dispatchers.IO) {
+                            try {
+                                val placesList = placesReader.read()
+                                places.clear()
+                                places.addAll(placesList)
+                            } catch (e: Exception) {
+                                Log.e("Firestore", "Error loading places", e)
+                            }
+                        }
+                    }
+                    .setNegativeButton("Cancelar", null)
+                    .show()
+
+            }
+
+            addMarkers(map)
+            map.setInfoWindowAdapter(MarkerPopupAdapter(this))
+        }
+    }
+
     private val signIntentHandler = registerForActivityResult(
         contact = ActivityResultContracts.StartActivityForResult()
     ) { result ->
@@ -101,24 +164,41 @@ class MainActivity : AppCompatActivity() {
         signInWithGoogle(tokenId = account.idToken!!)
 
     }
-
-
-    private fun signIn(){
-        val intent = client.signInIntent
-        signInHandler.launch(input = intent)
-    }
-
     private fun signInWithGoogle(tokenId: String) {
-        val credential = GoogleAuthProvider.getCredential(p0 = tokenId, p1 = null)
-        auth.signInWithCredential(p0 = credential)
-            .addOnCompleteListener( p0 =this){ task ->
-                if (task.isSuccesful){
+        val credential = GoogleAuthProvider.getCredential(tokenId, null)
+        auth.signInWithCredential(credential)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
                     user = auth.currentUser
-                }else{
-                    Log.w(tag = "AUTH", msg = "FAIL")
+                    Log.i("AUTH", "Google Sign-In successful: ${user?.email}")
+                    startActivity(Intent(this, DetalleDeUsuario::class.java))
+                } else {
+                    Log.w("AUTH", "Google Sign-In failed", task.exception)
                 }
             }
+    }
 
+    private fun signIn() {
+        CoroutineScope(Dispatchers.Main).launch {
+            try {
+                val googleIdOption = GetGoogleIdOption.Builder()
+                    .setFilterByAuthorizedAccounts(false)
+                    .setServerClientId(R.string.default_web_client_id.toString())
+                    .build();
+
+                val request = androidx.credentials.GetCredentialRequest.Builder()
+                    .addCredentialOption(googleIdOption)
+                    .build();
+
+                val result = credentialManager.getCredential(this@MainActivity, request);
+
+                val credential = result.credential;
+                val googleIdToken = GoogleIdTokenCredential.createFrom(credential.data);
+                signInWithGoogle(googleIdToken.idToken);
+            } catch (e: androidx.credentials.exceptions.GetCredentialException) {
+                Log.w("AUTH", "Credential error", e)
+            }
+        }
     }
 
 }

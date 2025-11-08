@@ -12,14 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package com.google.codelabs.buildyourfirstmap.place
+package com.google.codelabs.buildyourfirstmap.scores
 
-import com.google.android.gms.maps.model.LatLng
+import kotlinx.serialization.Serializable
 
-data class Place(
-    val id: String,
-    val name: String,
-    val latLng: LatLng,
-    val address: String,
-    var rating: Float
+@Serializable
+data class Score(
+    val placeId: String,
+    val username: String,
+    val score: Float,
+    val timestamp: String,
 )

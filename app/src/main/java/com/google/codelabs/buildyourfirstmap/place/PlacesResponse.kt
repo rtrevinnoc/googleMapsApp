@@ -17,25 +17,28 @@ package com.google.codelabs.buildyourfirstmap.place
 import com.google.android.gms.maps.model.LatLng
 
 data class PlaceResponse(
-    val geometry: Geometry,
-    val name: String,
-    val vicinity: String,
-    val rating: Float
+    val id: String = "",
+    val geometry: Geometry = Geometry(),
+    val name: String = "",
+    val vicinity: String = "",
+    val rating: Float = 0f
 ) {
 
     data class Geometry(
-        val location: GeometryLocation
+        val location: GeometryLocation = GeometryLocation()
     )
 
     data class GeometryLocation(
-        val lat: Double,
-        val lng: Double
+        val lat: Double = 0.0,
+        val lng: Double = 0.0
     )
 }
 
 fun PlaceResponse.toPlace(): Place = Place(
+    id = id,
     name = name,
     latLng = LatLng(geometry.location.lat, geometry.location.lng),
     address = vicinity,
     rating = rating
+
 )
