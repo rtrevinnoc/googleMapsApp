@@ -1,9 +1,11 @@
 plugins {
     id 'com.android.application'
-    id 'kotlin-android'
+    id 'org.jetbrains.kotlin.android'
 
-    // Add secrets-gradle-plugin here
+    // Plugin para ocultar claves API (como la de Google Maps)
     id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
+
+    // Plugin de Google Services (para usar Firebase)
     id 'com.google.gms.google-services'
 }
 
@@ -43,29 +45,34 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    // Kotlin y Android
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'androidx.core:core-ktx:1.7.0'
+
+    // Gson (para convertir objetos a JSON)
     implementation 'com.google.code.gson:gson:2.8.6'
 
-    // Dependency to include Maps SDK for Android
+    // Maps SDK y localización
     implementation 'com.google.android.gms:play-services-maps:18.2.0'
     implementation 'com.google.android.gms:play-services-location:21.0.1'
 
-    //Firebase
-    implementation 'com.google.firebase:firebase-firestore:26.0.1'
-    implementation 'com.google.firebase:firebase-auth:24.0.1'
+    // ✅ Firebase BoM (maneja versiones automáticamente)
+    implementation platform('com.google.firebase:firebase-bom:34.5.0')
 
-    //Google Identity
+    // Dependencias de Firebase (sin versión explícita)
+    implementation 'com.google.firebase:firebase-firestore'
+    implementation 'com.google.firebase:firebase-auth'
+
+    // Google Identity (para inicio de sesión)
     implementation 'androidx.credentials:credentials:1.5.0'
     implementation 'androidx.credentials:credentials-play-services-auth:1.5.0'
     implementation 'com.google.android.libraries.identity.googleid:googleid:1.1.1'
 
+    // Testing
     testImplementation 'junit:junit:4.13.2'
 }
 
 kotlin {
     jvmToolchain(17)
 }
-
-apply plugin: 'com.google.gms.google-services'
