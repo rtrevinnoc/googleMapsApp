@@ -11,6 +11,8 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import java.util.*
 import android.util.Log
+import android.content.ClipData
+import android.content.ContentResolver
 
 class AddMemoryActivity : AppCompatActivity() {
 
@@ -67,8 +69,10 @@ class AddMemoryActivity : AppCompatActivity() {
                 addCategory(Intent.CATEGORY_OPENABLE)
                 type = "image/*"
                 putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
+                // permitir persistir permiso de lectura
+                addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION)
             }
-            startActivityForResult(intent, REQUEST_PICK_IMAGES)
+            startActivityForResult(Intent.createChooser(intent, "Seleccionar imágenes"), REQUEST_PICK_IMAGES)
         }
 
         saveBtn.setOnClickListener {
@@ -92,17 +96,31 @@ class AddMemoryActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == REQUEST_PICK_IMAGES && resultCode == Activity.RESULT_OK && data != null) {
             selectedImages.clear()
-            data.data?.let { uri: Uri ->
+
+            // Una URI única
+            data.data?.let { uri ->
+                try {
+                    contentResolver.takePersistableUriPermission(uri, Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                } catch (e: Exception) {
+                    // some providers may not allow persist; ignore
+                }
                 selectedImages.add(uri.toString())
-                // opcional: takePersistableUriPermission(uri, ...)
             }
+
+            // Muchas URIs (multiple)
             val clip = data.clipData
             if (clip != null) {
                 for (i in 0 until clip.itemCount) {
                     val uri = clip.getItemAt(i).uri
+                    try {
+                        contentResolver.takePersistableUriPermission(uri, Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                    } catch (e: Exception) {
+                        // ignore
+                    }
                     selectedImages.add(uri.toString())
                 }
             }
+
             try {
                 val countView = findViewById<TextView>(R.id.text_images_count)
                 countView.text = "Fotos seleccionadas: ${selectedImages.size}"

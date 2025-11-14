@@ -21,12 +21,18 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.codelabs.buildyourfirstmap.place.Place
 import com.google.codelabs.buildyourfirstmap.Memory
+import android.view.View
+import com.google.android.gms.maps.model.Marker
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
 
 class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
     private val REQUEST_ADD_MEMORY = 1001
     private var isPickingLocation = false
+
+    // marcador temporal para selección de ubicación
+    private var pickMarker: Marker? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,6 +46,10 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 
         // Botón para agregar memoria desde la posición actual de la cámara (o por defecto)
         val addBtn = findViewById<Button>(R.id.button_add_memory)
+        val confirmBtn = findViewById<Button>(R.id.button_confirm_location)
+        // inicialmente oculto; se mostrará si estamos en modo selección
+        confirmBtn.visibility = View.GONE
+
         addBtn.setOnClickListener {
             val defaultPos = LatLng(25.6866, -100.3161)
             val target = if (::mMap.isInitialized) mMap.cameraPosition.target else defaultPos
@@ -48,6 +58,19 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
                 putExtra("lng", target.longitude)
             }
             startActivityForResult(intent, REQUEST_ADD_MEMORY)
+        }
+
+        // Si estamos en modo selección y el usuario pulsa confirmar, devolvemos la posición del pickMarker
+        confirmBtn.setOnClickListener {
+            pickMarker?.let { mk ->
+                val pos = mk.position
+                val data = Intent().apply {
+                    putExtra("picked_lat", pos.latitude)
+                    putExtra("picked_lng", pos.longitude)
+                }
+                setResult(Activity.RESULT_OK, data)
+                finish()
+            }
         }
     }
 
@@ -62,17 +85,42 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap.addMarker(MarkerOptions().position(monterrey).title("Marcador en Monterrey"))
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(monterrey, 10f))
 
-        // Si estamos en modo "pick location", devolver la coordenada al hacer click en el mapa
+        // Si estamos en modo "pick location", configuramos marcador draggable de color distinto
         if (isPickingLocation) {
+            // mostrar botón confirmar
+            val confirmBtn = findViewById<Button>(R.id.button_confirm_location)
+            confirmBtn.visibility = View.VISIBLE
+
+            // posición inicial: centro de la cámara (o Monterrey si no hay)
+            val initPos = mMap.cameraPosition?.target ?: monterrey
+            // crear marcador draggable con color distinto
+            pickMarker = mMap.addMarker(
+                MarkerOptions()
+                    .position(initPos)
+                    .title("Arrastra para elegir ubicación")
+                    .draggable(true)
+                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
+            )
+
+            // permitir que el usuario arrastre; también actualizamos marker si se mueve la cámara (opcional)
+            mMap.setOnMarkerDragListener(object : GoogleMap.OnMarkerDragListener {
+                override fun onMarkerDragStart(marker: Marker) { /* no-op */ }
+                override fun onMarkerDrag(marker: Marker) { /* no-op */ }
+                override fun onMarkerDragEnd(marker: Marker) { /* no-op */ }
+            })
+
+            // Si el usuario hace click en el mapa también podemos mover el marcador allí
             mMap.setOnMapClickListener { latLng ->
-                val data = Intent().apply {
-                    putExtra("picked_lat", latLng.latitude)
-                    putExtra("picked_lng", latLng.longitude)
-                }
-                setResult(Activity.RESULT_OK, data)
-                finish()
+                pickMarker?.position = latLng
             }
+
+            // centramos la cámara sobre el marcador para que sea visible
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(initPos, 14f))
+
             return
+        } else {
+            // asegurarse que el botón confirmar esté oculto fuera de modo selección
+            findViewById<Button>(R.id.button_confirm_location).visibility = View.GONE
         }
 
         // Al hacer long-press, abrir la pantalla para crear un recuerdo en esa ubicación
@@ -111,13 +159,21 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         locView.text = "Lat: %.5f, Lng: %.5f".format(memory.lat, memory.lng)
 
         imagesContainer.removeAllViews()
+
+        // tamaño en dp para las miniaturas
+        val sizeDp = 100
+        val sizePx = (sizeDp * resources.displayMetrics.density).toInt()
         for (uriStr in memory.imageUris) {
             try {
                 val iv = ImageView(this)
-                val lp = LinearLayout.LayoutParams(300, 300)
-                lp.setMargins(8, 8, 8, 8)
+                val lp = LinearLayout.LayoutParams(sizePx, sizePx)
+                lp.setMargins((8 * resources.displayMetrics.density).toInt(),
+                    (8 * resources.displayMetrics.density).toInt(),
+                    (8 * resources.displayMetrics.density).toInt(),
+                    (8 * resources.displayMetrics.density).toInt())
                 iv.layoutParams = lp
                 iv.scaleType = ImageView.ScaleType.CENTER_CROP
+                // usar setImageURI (funcionará si el permiso fue persistido en AddMemoryActivity)
                 iv.setImageURI(Uri.parse(uriStr))
                 imagesContainer.addView(iv)
             } catch (e: Exception) {

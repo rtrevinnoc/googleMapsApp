@@ -35,12 +35,21 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp" />
 
-        <LinearLayout
-            android:id="@+id/detail_images_container"
+        <!-- Ahora las imágenes están dentro de un HorizontalScrollView -->
+        <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal" />
+            android:scrollbars="horizontal"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp">
+
+            <LinearLayout
+                android:id="@+id/detail_images_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" />
+
+        </HorizontalScrollView>
 
     </LinearLayout>
 </ScrollView>
-
