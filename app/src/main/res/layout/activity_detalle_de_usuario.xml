@@ -39,14 +39,15 @@
         android:id="@+id/profilePicture"
         android:layout_width="48dp"
         android:layout_height="48dp"
+        android:layout_gravity="center"
         android:contentDescription="foto de perfil"
         android:src="@drawable/baseline_person_24"
-        android:layout_gravity="center"
-        app:layout_constraintTop_toBottomOf="@id/mainToolbar"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        />
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mainToolbar"
+        app:layout_constraintVertical_bias="0.325" />
 
     <TextView
         android:id="@+id/username"
@@ -54,11 +55,12 @@
         android:layout_height="wrap_content"
         android:textColor="@color/black"
         android:textSize="12sp"
-        tools:text="Some Username"
-        app:layout_constraintTop_toBottomOf="@id/profilePicture"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        />
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profilePicture"
+        app:layout_constraintVertical_bias="0.211"
+        tools:text="Some Username" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
