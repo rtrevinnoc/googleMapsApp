@@ -12,7 +12,6 @@
         android:id="@+id/marker_popup_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
         tools:text="Title" />
@@ -21,19 +20,24 @@
         android:id="@+id/marker_popup_address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
         android:textSize="12sp"
         tools:text="Some Address" />
 
-    <TextView
+    <!--<TextView
         android:id="@+id/marker_popup_rating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
         android:textSize="12sp"
-        tools:text="Some Rating" />
+        tools:text="Some Rating" />-->
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <NumberPicker
+        android:id="@+id/marker_popup_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+    <!--<androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="4dp">
@@ -43,6 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/addScore"
+            android:textColor="@color/white"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -50,30 +55,31 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/increaseScore"
+            style="@style/Widget.Material3.Button.IconButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/Widget.Material3.Button.IconButton"
-            app:icon="@drawable/baseline_expand_less_24"
             android:contentDescription="@string/incrementar_rating"
-            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="visible"
+            app:backgroundTint="#C5C4C4"
+            app:icon="@drawable/baseline_expand_less_24"
             app:layout_constraintBottom_toTopOf="@id/reduceScore"
             app:layout_constraintLeft_toRightOf="@id/addScore"
             app:layout_constraintRight_toRightOf="parent"
-            />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/reduceScore"
+            style="@style/Widget.Material3.Button.IconButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/Widget.Material3.Button.IconButton"
-            app:icon="@drawable/baseline_expand_more_24"
             android:contentDescription="@string/reducir_rating"
-            app:layout_constraintTop_toBottomOf="@id/increaseScore"
+            app:backgroundTint="#C5C4C4"
+            app:icon="@drawable/baseline_expand_more_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toRightOf="@id/addScore"
             app:layout_constraintRight_toRightOf="parent"
-            />
+            app:layout_constraintTop_toBottomOf="@id/increaseScore" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>-->
 
 </LinearLayout>
