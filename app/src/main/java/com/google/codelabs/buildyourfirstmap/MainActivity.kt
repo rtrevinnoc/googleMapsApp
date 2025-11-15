@@ -8,6 +8,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Geocoder
 import android.os.Bundle
+import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
@@ -23,6 +24,7 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.codelabs.buildyourfirstmap.place.Place
 import kotlinx.coroutines.launch
 
@@ -30,7 +32,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
     private val auth = FirebaseAuth.getInstance()
-    private val repository = `PlacesRepository`()
+    private val repository = PlacesRepository(FirebaseFirestore.getInstance())
 
     private val requestPermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission()
@@ -41,19 +43,28 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
-        // Autenticación anónima
-        if (auth.currentUser == null) {
-            auth.signInAnonymously().addOnFailureListener {
-                Toast.makeText(this, "Error iniciando sesión: ${it.message}", Toast.LENGTH_LONG)
-                    .show()
-            }
+        // Verifica si hay usuario logueado
+        if (FirebaseAuth.getInstance().currentUser == null) {
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+            return
         }
+
+        setContentView(R.layout.activity_main)
 
         // Cargar mapa
         val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+
+        // Botón de cerrar sesión
+        val logoutBtn = findViewById<Button>(R.id.btnLogout)
+        logoutBtn.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+            val intent = Intent(this, LoginActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
+        }
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
@@ -133,58 +144,104 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 
     // ----------- FIRESTORE -----------
     private fun savePlace(place: Place) {
-        lifecycleScope.launch {
-            try {
-                val uid = auth.currentUser?.uid
-                repository.savePlace(place, uid)
-                Toast.makeText(this@MainActivity, "Lugar guardado", Toast.LENGTH_SHORT).show()
-                addMarkerForPlace(place)
-            } catch (e: Exception) {
-                Toast.makeText(
-                    this@MainActivity,
-                    "Error al guardar: ${e.message}",
-                    Toast.LENGTH_LONG
-                ).show()
+        val uid = auth.currentUser?.uid ?: return
+
+        repository.savePlace(
+            uid = uid,
+            place = place,
+            onSuccess = {
+                Toast.makeText(this, "Lugar guardado", Toast.LENGTH_SHORT).show()
+                markerRefresh()
+            },
+            onError = { e ->
+                Toast.makeText(this, "Error al guardar: ${e.message}", Toast.LENGTH_LONG).show()
             }
-        }
+        )
     }
 
     private fun loadPlaces() {
-        lifecycleScope.launch {
-            try {
-                val uid = auth.currentUser?.uid
-                val places = repository.getPlaces(uid)
-                for (place in places) addMarkerForPlace(place)
-            } catch (e: Exception) {
-                Toast.makeText(
-                    this@MainActivity,
-                    "Error leyendo lugares: ${e.message}",
-                    Toast.LENGTH_LONG
-                ).show()
-            }
+        val uid = auth.currentUser?.uid ?: return
+        repository.loadPlaces(
+            uid,
+            onComplete = { places -> places.forEach { addMarkerForPlace(it) } },
+            onError = { e -> Toast.makeText(this, "Error: ${e.message}", Toast.LENGTH_LONG).show() }
+        )
+    }
+
+    // ----------- EDITAR / BORRAR / COMPARTIR -----------
+    private fun setupInfoWindowClick() {
+        mMap.setOnInfoWindowClickListener { marker ->
+            val place = marker.tag as? Place ?: return@setOnInfoWindowClickListener
+            val options = arrayOf("Editar", "Borrar", "Compartir")
+            AlertDialog.Builder(this)
+                .setTitle(place.name)
+                .setItems(options) { _, which ->
+                    when (which) {
+                        0 -> showEditPlaceDialog(place)
+                        1 -> deletePlace(place)
+                        2 -> sharePlace(place)
+                    }
+                }
+                .show()
         }
     }
 
-    // ---------- MARCADORES Y COMPARTIR ----------
+    private fun showEditPlaceDialog(place: Place) {
+        val editText = EditText(this)
+        editText.setText(place.name)
+        AlertDialog.Builder(this)
+            .setTitle("Editar lugar")
+            .setMessage("Modifica el nombre del lugar")
+            .setView(editText)
+            .setPositiveButton("Guardar") { _, _ ->
+                val newName = editText.text.toString().ifBlank { place.name }
+                val updatedPlace = place.copy(name = newName)
+                val uid = auth.currentUser?.uid ?: return@setPositiveButton
+                repository.updatePlace(uid, updatedPlace,
+                    onSuccess = {
+                        Toast.makeText(this, "Lugar actualizado", Toast.LENGTH_SHORT).show()
+                        markerRefresh()
+                    },
+                    onError = { e -> Toast.makeText(this, "Error: ${e.message}", Toast.LENGTH_LONG).show() }
+                )
+            }
+            .setNegativeButton("Cancelar", null)
+            .show()
+    }
+
+    private fun deletePlace(place: Place) {
+        AlertDialog.Builder(this)
+            .setTitle("Borrar lugar")
+            .setMessage("¿Seguro que quieres borrar ${place.name}?")
+            .setPositiveButton("Borrar") { _, _ ->
+                val uid = auth.currentUser?.uid ?: return@setPositiveButton
+                repository.deletePlace(uid, place,
+                    onSuccess = {
+                        Toast.makeText(this, "Lugar borrado", Toast.LENGTH_SHORT).show()
+                        markerRefresh()
+                    },
+                    onError = { e -> Toast.makeText(this, "Error: ${e.message}", Toast.LENGTH_LONG).show() }
+                )
+            }
+            .setNegativeButton("Cancelar", null)
+            .show()
+    }
+
+    // ----------- MARCADORES Y COMPARTIR -----------
     private fun addMarkerForPlace(place: Place) {
         val marker = mMap.addMarker(
             MarkerOptions()
                 .position(place.latLng)
                 .title(place.name)
         )
-        marker?.tag = place          // asociamos el objeto Place al marcador
-        marker?.showInfoWindow()     // abrir el info window automáticamente
+        marker?.tag = place
     }
 
-    // Listener para cuando se pulsa el info window
-    private fun setupInfoWindowClick() {
-        mMap.setOnInfoWindowClickListener { marker ->
-            val place = marker.tag as? Place
-            place?.let { sharePlace(it) }
-        }
+    private fun markerRefresh() {
+        mMap.clear()
+        loadPlaces()
     }
 
-    // ---------- COMPARTIR ----------
     private fun sharePlace(place: Place) {
         val uri = "https://www.google.com/maps/search/?api=1&query=${place.lat},${place.lng}"
         val intent = Intent(Intent.ACTION_SEND).apply {

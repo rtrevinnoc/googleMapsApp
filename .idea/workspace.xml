@@ -10,6 +10,11 @@
           <theme>@style/AppTheme</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
+        <config>
+          <theme>@style/AppTheme</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
         <config>
           <theme>@style/AppTheme</theme>
@@ -27,17 +32,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="68d2c4ed-9f1d-40ae-bb13-1f23e8071488" name="Changes" comment="-Conexion a firestore&#10;-Se puede guardar diferentes locaciones en el mapa y compartirlas.">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/google/codelabs/buildyourfirstmap/place/PlacesRepository.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/google/codelabs/buildyourfirstmap/LoginActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/google-services.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/google-services.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/google/codelabs/buildyourfirstmap/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/google/codelabs/buildyourfirstmap/MainActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/google/codelabs/buildyourfirstmap/place/Place.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/google/codelabs/buildyourfirstmap/place/Place.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/google/codelabs/buildyourfirstmap/place/PlacesReader.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/google/codelabs/buildyourfirstmap/place/PlacesResponse.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/google/codelabs/buildyourfirstmap/place/PlacesRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/google/codelabs/buildyourfirstmap/place/PlacesRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +107,7 @@
   }
 }</component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -307,7 +312,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761965540262</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="-Conexion a firestore&#10;-Se puede guardar diferentes locaciones en el mapa y compartirlas.">
+      <option name="closed" value="true" />
+      <created>1762575482517</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1762575482517</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -322,12 +335,12 @@
       <map>
         <entry key="com.google.codelabs.buildyourfirstmap">
           <value>
-            <CheckInfo lastCheckTimestamp="1762554825515" />
+            <CheckInfo lastCheckTimestamp="1763178263583" />
           </value>
         </entry>
         <entry key="com.google.codelabs.buildyourfirstmap.test">
           <value>
-            <CheckInfo lastCheckTimestamp="1762554825515" />
+            <CheckInfo lastCheckTimestamp="1763178263585" />
           </value>
         </entry>
       </map>
