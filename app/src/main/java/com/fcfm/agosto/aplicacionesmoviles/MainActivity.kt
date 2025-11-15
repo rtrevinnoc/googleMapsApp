@@ -60,7 +60,10 @@ class MainActivity : AppCompatActivity() {
 
                 places.clear()
                 places.addAll(placesList)
-                setupMap()
+
+                withContext(Dispatchers.Main){
+                    setupMap()
+                }
             } catch (e: Exception) {
                 Log.e("Firestore", "Error loading places", e)
             }
@@ -68,9 +71,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupMap() {
+        Log.d("MAP","SETUP");
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as? SupportMapFragment
-
+        Log.d("MAP","OBTAINING MAP")
         mapFragment?.getMapAsync { map ->
             map.setOnMapLongClickListener { latLng ->
                 val view = LayoutInflater.from(this).inflate(R.layout.new_place_form, null)
