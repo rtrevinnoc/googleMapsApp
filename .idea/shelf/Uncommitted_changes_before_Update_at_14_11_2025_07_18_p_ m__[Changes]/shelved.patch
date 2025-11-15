@@ -1,0 +1,15 @@
+Index: app/src/main/java/com/google/codelabs/buildyourfirstmap/MainActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.google.codelabs.buildyourfirstmap\r\n\r\nimport androidx.appcompat.app.AppCompatActivity\r\nimport android.os.Bundle\r\nimport com.google.android.gms.maps.CameraUpdateFactory\r\nimport com.google.android.gms.maps.GoogleMap\r\nimport com.google.android.gms.maps.OnMapReadyCallback\r\nimport com.google.android.gms.maps.SupportMapFragment\r\nimport com.google.android.gms.maps.model.LatLng\r\nimport com.google.android.gms.maps.model.MarkerOptions\r\n\r\nclass MainActivity : AppCompatActivity(), OnMapReadyCallback {\r\n\r\n\r\n    private lateinit var mMap: GoogleMap\r\n\r\n    override fun onCreate(savedInstanceState: Bundle?) {\r\n        super.onCreate(savedInstanceState)\r\n        setContentView(R.layout.activity_main)\r\n\r\n\r\n        val mapFragment = supportFragmentManager\r\n            .findFragmentById(R.id.map) as SupportMapFragment\r\n        mapFragment.getMapAsync(this)\r\n    }\r\n\r\n    override fun onMapReady(googleMap: GoogleMap) {\r\n        mMap = googleMap\r\n\r\n\r\n        val monterrey = LatLng(25.6866, -100.3161)\r\n\r\n        mMap.addMarker(MarkerOptions().position(monterrey).title(\"Marcador en Monterrey\"))\r\n        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(monterrey, 10f))\r\n    }\r\n}
+===================================================================
+diff --git a/app/src/main/java/com/google/codelabs/buildyourfirstmap/MainActivity.kt b/app/src/main/java/com/google/codelabs/buildyourfirstmap/MainActivity.kt
+--- a/app/src/main/java/com/google/codelabs/buildyourfirstmap/MainActivity.kt	(revision 842068b1f9086007de8fdd54915ae7ae0ac70ebb)
++++ b/app/src/main/java/com/google/codelabs/buildyourfirstmap/MainActivity.kt	(date 1760755532116)
+@@ -33,4 +33,5 @@
+         mMap.addMarker(MarkerOptions().position(monterrey).title("Marcador en Monterrey"))
+         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(monterrey, 10f))
+     }
++
+ }
+\ No newline at end of file
