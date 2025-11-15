@@ -8,30 +8,29 @@
     tools:context=".DetalleDeUsuario">
 
     <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/mainToolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
         android:minHeight="22dp"
-        android:id="@+id/mainToolbar"
         android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:title="Información de Usuario"
         app:titleCentered="true"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:background="@color/colorPrimary"
-        app:titleTextColor="@color/design_default_color_background"
-        >
+        app:titleTextColor="@color/design_default_color_background">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/signOut"
+            style="@style/Widget.Material3.Button.IconButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/Widget.Material3.Button.IconButton"
-            app:icon="@drawable/baseline_logout_24"
-            android:contentDescription="perfil"
             android:layout_gravity="right"
-            app:iconTint="@color/design_default_color_background"
-            />
+            android:contentDescription="perfil"
+            app:icon="@drawable/baseline_logout_24"
+            app:iconTint="@color/design_default_color_background" />
 
     </com.google.android.material.appbar.MaterialToolbar>
 
