@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'org.jetbrains.kotlin.plugin.serialization'
 
     // Add secrets-gradle-plugin here
     id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
@@ -8,11 +9,11 @@ plugins {
 }
 
 android {
-    namespace 'com.google.codelabs.buildyourfirstmap'
+    namespace "com.fcfm.agosto.aplicacionesmoviles"
     compileSdk 36
 
     defaultConfig {
-        applicationId "com.google.codelabs.buildyourfirstmap"
+        applicationId "com.fcfm.agosto.aplicacionesmoviles"
         minSdk 24
         targetSdk 36
         versionCode 1
@@ -47,19 +48,25 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'com.google.code.gson:gson:2.8.6'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'com.google.android.material:material:1.10.0'
 
     // Dependency to include Maps SDK for Android
     implementation 'com.google.android.gms:play-services-maps:18.0.2'
+    implementation 'com.google.android.gms:play-services-auth:21.4.0'
     implementation 'com.google.firebase:firebase-firestore:26.0.1'
     implementation 'com.google.firebase:firebase-auth:24.0.1'
     implementation 'androidx.credentials:credentials:1.5.0'
     implementation 'androidx.credentials:credentials-play-services-auth:1.5.0'
     implementation 'com.google.android.libraries.identity.googleid:googleid:1.1.1'
-    implementation 'com.google.android.gms:play-services-auth:21.2.0'
+
+    implementation 'com.squareup.okhttp3:okhttp:5.1.0'
+    implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.9.0'
+    implementation 'com.google.android.material:material:1.13.0'
+
+    implementation 'com.google.firebase:firebase-firestore-ktx:25.1.4'
 
     testImplementation 'junit:junit:4.13.2'
+
+    implementation 'io.coil-kt:coil:2.7.0'
 }
 
 kotlin {
