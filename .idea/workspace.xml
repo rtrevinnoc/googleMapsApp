@@ -5,7 +5,32 @@
       <config />
     </shared>
     <layouts>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/baseline_expand_more_24.xml">
+        <config>
+          <theme>@style/AppTheme</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/baseline_logout_24.xml">
+        <config>
+          <theme>@style/AppTheme</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_detalle_de_usuario.xml">
+        <config>
+          <theme>@style/AppTheme</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+        <config>
+          <theme>@style/AppTheme</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/marker_popup.xml">
+        <config>
+          <theme>@style/AppTheme</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/new_place_form.xml">
         <config>
           <theme>@style/AppTheme</theme>
         </config>
@@ -16,10 +41,24 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68d2c4ed-9f1d-40ae-bb13-1f23e8071488" name="Changes" comment="2025/11/14">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_13_10_2025_08_16_p__m___Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_13_10_2025_08_16_p_ m__[Changes]/shelved.patch" beforeDir="false" />
+    <list default="true" id="68d2c4ed-9f1d-40ae-bb13-1f23e8071488" name="Changes" comment="2025/11/07">
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/baseline_arrow_back_24.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/appInsightsSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/appInsightsSettings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/fcfm/agosto/aplicacionesmoviles/DetalleDeUsuario.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fcfm/agosto/aplicacionesmoviles/DetalleDeUsuario.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/fcfm/agosto/aplicacionesmoviles/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fcfm/agosto/aplicacionesmoviles/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/fcfm/agosto/aplicacionesmoviles/MarkerPopupAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fcfm/agosto/aplicacionesmoviles/MarkerPopupAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/fcfm/agosto/aplicacionesmoviles/place/PlacesReader.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fcfm/agosto/aplicacionesmoviles/place/PlacesReader.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/fcfm/agosto/aplicacionesmoviles/scores/ScoresReader.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fcfm/agosto/aplicacionesmoviles/scores/ScoresReader.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_detalle_de_usuario.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_detalle_de_usuario.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/marker_popup.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/marker_popup.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/new_place_form.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/new_place_form.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +68,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=LocalEmulator, isTemplate=false, identifier=path=C:\Users\Luis\.android\avd\Medium_Phone.avd)]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=PhysicalDevice, isTemplate=false, identifier=serial=fb6dcc0a0507)]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -60,7 +99,7 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="BuildYourFirstMap" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="other" type="c8890929:TasksNode$1" />
+                <item name="install" type="c8890929:TasksNode$1" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
@@ -72,6 +111,13 @@
                 <item name="BuildYourFirstMap" type="f1a62948:ProjectNode" />
                 <item name="app" type="2d1252cf:ModuleNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="BuildYourFirstMap" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="android" type="c8890929:TasksNode$1" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
@@ -92,27 +138,24 @@
       <list>
         <option value="layoutResourceFile_vertical" />
         <option value="Kotlin File" />
+        <option value="Kotlin Class" />
+        <option value="layoutResourceFile" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="main" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
     &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;luiisGGc&quot;
+    &quot;assignee&quot;: &quot;rtrevinnoc&quot;
   }
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/rtrevinnoc/googleMapsApp.git&quot;,
-    &quot;accountId&quot;: &quot;1f531e86-3f40-49b7-b67b-f3d638810dda&quot;
+    &quot;accountId&quot;: &quot;7c49cbbf-1d3f-4877-9834-ae7e264e6ef3&quot;
   }
 }</component>
   <component name="ProblemsViewState">
@@ -134,8 +177,8 @@
   &quot;keyToString&quot;: {
     &quot;Android App.MainActivity.executor&quot;: &quot;Run&quot;,
     &quot;Android App.app.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GET SHA1 KEY.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.Upgrade Gradle wrapper.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.googleMapsApp:app [signingReport].executor&quot;: &quot;Run&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
@@ -145,18 +188,28 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Galindo1969491&quot;,
+    &quot;com.google.services.firebase.aqiPopupShown&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Luis/StudioProjects/googleMapsApp/app&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/rtrev/Desktop/googleMapsApp/app&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Dependencies&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;device.mirroring&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Luis\StudioProjects\googleMapsApp\app" />
+      <recent name="C:\Users\rtrev\Desktop\googleMapsApp\app" />
+    </key>
+    <key name="android.template.-1927996141">
+      <recent name="com.fcfm.agosto.aplicacionesmoviles" />
+    </key>
+    <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="com.fcfm.agosto.aplicacionesmoviles.scores" />
     </key>
   </component>
-  <component name="RunManager" selected="Android App.MainActivity">
+  <component name="RunManager" selected="Android App.app">
     <configuration name="MainActivity" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false" temporary="true">
       <module name="BuildYourFirstMap.app" />
       <option name="ANDROID_RUN_CONFIGURATION_SCHEMA_VERSION" value="1" />
@@ -301,12 +354,31 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <list>
-      <item itemvalue="Android App.app" />
-      <item itemvalue="Android App.MainActivity" />
-    </list>
+    <configuration name="googleMapsApp:app [signingReport]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/app" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="signingReport" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.googleMapsApp:app [signingReport]" />
         <item itemvalue="Android App.MainActivity" />
       </list>
     </recent_temporary>
@@ -319,52 +391,62 @@
       <option name="presentableId" value="Default" />
       <updated>1758299253513</updated>
     </task>
-    <task id="LOCAL-00001" summary="2025/11/14">
+    <task id="LOCAL-00001" summary="2025/10/17">
       <option name="closed" value="true" />
-      <created>1763171420496</created>
+      <created>1760747412478</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1763171420496</updated>
+      <updated>1760747412478</updated>
     </task>
-    <task id="LOCAL-00002" summary="2025/11/14">
+    <task id="LOCAL-00002" summary="2025/11/07">
       <option name="closed" value="true" />
-      <created>1763171567158</created>
+      <created>1762563877830</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1763171567158</updated>
+      <updated>1762563877830</updated>
     </task>
     <option name="localTasksCounter" value="3" />
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Implementacion de mapa de google maps, autenticacion de google, guardado en firebase, reconocimiento de lugares y prueba de lugares guardados" />
-    <MESSAGE value="Mapa de google maps, autenticacion de google, guardado en firebase, reconocimiento de lugares y prueba de lugares guardados" />
-    <MESSAGE value="2025/11/14" />
-    <option name="LAST_COMMIT_MESSAGE" value="2025/11/14" />
+    <MESSAGE value="2025/10/17" />
+    <MESSAGE value="2025/11/07" />
+    <option name="LAST_COMMIT_MESSAGE" value="2025/11/07" />
   </component>
   <component name="play_dynamic_filters_status">
     <option name="appIdToCheckInfo">
       <map>
         <entry key="com.fcfm.agosto.aplicacionesmoviles">
           <value>
-            <CheckInfo lastCheckTimestamp="1763171408957" />
+            <CheckInfo lastCheckTimestamp="1763138100704" />
           </value>
         </entry>
         <entry key="com.fcfm.agosto.aplicacionesmoviles.test">
           <value>
-            <CheckInfo lastCheckTimestamp="1763171408963" />
+            <CheckInfo lastCheckTimestamp="1763138100706" />
           </value>
         </entry>
         <entry key="com.google.codelabs.buildyourfirstmap">
           <value>
-            <CheckInfo lastCheckTimestamp="1760408261497" />
+            <CheckInfo lastCheckTimestamp="1759448551243" />
           </value>
         </entry>
         <entry key="com.google.codelabs.buildyourfirstmap.test">
           <value>
-            <CheckInfo lastCheckTimestamp="1760408261501" />
+            <CheckInfo lastCheckTimestamp="1759448551243" />
           </value>
         </entry>
       </map>
