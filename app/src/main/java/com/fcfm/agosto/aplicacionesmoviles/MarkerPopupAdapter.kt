@@ -1,6 +1,7 @@
 package com.fcfm.agosto.aplicacionesmoviles
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.Button
@@ -27,6 +28,7 @@ class MarkerPopupAdapter(
     private var rating: Float? = null
 
     private val db = Firebase.firestore
+    private lateinit var ratingText: TextView
 
     override fun getInfoContents(marker: Marker): View? {
         auth = FirebaseAuth.getInstance()
@@ -37,18 +39,23 @@ class MarkerPopupAdapter(
         val view = LayoutInflater.from(context).inflate(
             R.layout.marker_popup, null
         )
-        view.findViewById<TextView>(R.id.marker_popup_title).text = place.name
+        /*view.findViewById<TextView>(R.id.marker_popup_title).text = place.name
         view.findViewById<TextView>(R.id.marker_popup_address).text = place.address
-        view.findViewById<TextView>(R.id.marker_popup_rating).text = "Puntuación: %.2f".format(rating)
+        ratingText = view.findViewById<TextView>(R.id.marker_popup_rating);
+        ratingText.text = "Puntuación: %.2f".format(rating)
         view.findViewById<Button>(R.id.addScore).setOnClickListener {
             addScore(place)
         }
         view.findViewById<MaterialButton>(R.id.increaseScore).setOnClickListener {
             increaseRating()
+            Log.d("NUMBERS", "INCREASE %.2f".format(rating))
+            ratingText.text = "Puntuación: %.2f".format(rating)
         }
         view.findViewById<MaterialButton>(R.id.reduceScore).setOnClickListener {
             decreaseRating()
-        }
+            Log.d("NUMBERS", "REDUCE %.2f".format(rating))
+            ratingText.text = "Puntuación: %.2f".format(rating)
+        }*/
 
         return view
     }
@@ -65,7 +72,7 @@ class MarkerPopupAdapter(
         val newScore = scoresReader.doPost(score)
         place.rating = newScore
 
-        db.collection(R.string.placesFirestore.toString()).document(place.id).set(place)
+        db.collection(context.getString(R.string.placesFirestore)).document(place.id).set(place)
     }
 
     fun increaseRating(): Float {

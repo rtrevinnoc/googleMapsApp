@@ -11,7 +11,7 @@ import okhttp3.ResponseBody
 
 class ScoresReader(private val context: Context) {
 
-    private val sheetUrl = R.string.scoresSheetUrl.toString()
+    private val sheetUrl = context.getString(R.string.scoresSheetUrl)
     private val client = OkHttpClient()
     private val json = Json { ignoreUnknownKeys = true }
 

@@ -27,7 +27,7 @@ class PlacesReader(private val context: Context) {
     private val db = Firebase.firestore
 
     suspend fun read(): List<Place> {
-        val results = db.collection(R.string.placesFirestore.toString()).get().await();
+        val results = db.collection(context.getString(R.string.placesFirestore)).get().await();
         val placesResponse = results.documents.mapNotNull { it.toObject(PlaceResponse::class.java) }
         return placesResponse.map { it.toPlace() }
     }
@@ -50,7 +50,7 @@ class PlacesReader(private val context: Context) {
             "rating" to rating
         )
 
-        db.collection(R.string.placesFirestore.toString())
+        db.collection(context.getString(R.string.placesFirestore))
             .add(placeMap);
     }
 }
