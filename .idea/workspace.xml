@@ -42,23 +42,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="68d2c4ed-9f1d-40ae-bb13-1f23e8071488" name="Changes" comment="2025/11/07">
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/baseline_arrow_back_24.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/appInsightsSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/appInsightsSettings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/fcfm/agosto/aplicacionesmoviles/DetalleDeUsuario.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fcfm/agosto/aplicacionesmoviles/DetalleDeUsuario.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/fcfm/agosto/aplicacionesmoviles/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fcfm/agosto/aplicacionesmoviles/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/fcfm/agosto/aplicacionesmoviles/MarkerPopupAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fcfm/agosto/aplicacionesmoviles/MarkerPopupAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/fcfm/agosto/aplicacionesmoviles/place/PlacesReader.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fcfm/agosto/aplicacionesmoviles/place/PlacesReader.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/fcfm/agosto/aplicacionesmoviles/scores/ScoresReader.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fcfm/agosto/aplicacionesmoviles/scores/ScoresReader.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_detalle_de_usuario.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_detalle_de_usuario.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/marker_popup.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/marker_popup.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/new_place_form.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/new_place_form.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +56,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=PhysicalDevice, isTemplate=false, identifier=serial=fb6dcc0a0507)]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=LocalEmulator, isTemplate=false, identifier=path=C:\Users\USUARIO\.android\avd\Medium_Phone.avd)]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -189,7 +177,7 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "com.google.services.firebase.aqiPopupShown": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Cervantes-2098946",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/rtrev/Desktop/googleMapsApp/app",
     "project.structure.last.edited": "Dependencies",
@@ -431,12 +419,12 @@
       <map>
         <entry key="com.fcfm.agosto.aplicacionesmoviles">
           <value>
-            <CheckInfo lastCheckTimestamp="1763138100704" />
+            <CheckInfo lastCheckTimestamp="1763784502540" />
           </value>
         </entry>
         <entry key="com.fcfm.agosto.aplicacionesmoviles.test">
           <value>
-            <CheckInfo lastCheckTimestamp="1763138100706" />
+            <CheckInfo lastCheckTimestamp="1763784502549" />
           </value>
         </entry>
         <entry key="com.google.codelabs.buildyourfirstmap">
