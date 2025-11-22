@@ -1,9 +1,8 @@
 package com.google.codelabs.buildyourfirstmap
 
+import android.content.Intent
 import android.os.Bundle
-import android.widget.EditText
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -40,7 +39,7 @@ class SavedPlacesActivity : AppCompatActivity() {
                         updateVisited(place, visited)
                     },
                     onNotesClick = { place ->
-                        showNotesDialog(place)
+                        openNotes(place)
                     }
                 )
             },
@@ -60,25 +59,11 @@ class SavedPlacesActivity : AppCompatActivity() {
         )
     }
 
-    private fun showNotesDialog(place: Place) {
-        val edit = EditText(this)
-        edit.setText(place.notes ?: "")
-        edit.setLines(6)
-        edit.setPadding(20, 20, 20, 20)
-
-        AlertDialog.Builder(this)
-            .setTitle("Notas de ${place.name}")
-            .setView(edit)
-            .setPositiveButton("Guardar") { _, _ ->
-                val updated = place.copy(notes = edit.text.toString())
-                repository.updatePlace(
-                    uid,
-                    updated,
-                    onSuccess = {},
-                    onError = {}
-                )
-            }
-            .setNegativeButton("Cancelar", null)
-            .show()
+    private fun openNotes(place: Place) {
+        val intent = Intent(this, NotesActivity::class.java).apply {
+            putExtra("placeId", place.id)
+            putExtra("placeName", place.name)
+        }
+        startActivity(intent)
     }
 }

@@ -10,8 +10,7 @@ data class Place(
     val rating: Float = 0f,
     val lat: Double = 0.0,
     val lng: Double = 0.0,
-    val visited: Boolean = false,
-    val notes: String = ""
+    val visited: Boolean = false
 ) {
     val latLng: LatLng
         get() = LatLng(lat, lng)
