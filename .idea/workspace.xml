@@ -41,12 +41,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68d2c4ed-9f1d-40ae-bb13-1f23e8071488" name="Changes" comment="2025/11/07">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-    </list>
+    <list default="true" id="68d2c4ed-9f1d-40ae-bb13-1f23e8071488" name="Changes" comment="&quot;Ultimos cambios&quot;" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -394,7 +389,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762563877830</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="&quot;Ultimos cambios&quot;">
+      <option name="closed" value="true" />
+      <created>1763786937708</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1763786937708</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -411,7 +414,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="2025/10/17" />
     <MESSAGE value="2025/11/07" />
-    <option name="LAST_COMMIT_MESSAGE" value="2025/11/07" />
+    <MESSAGE value="&quot;Ultimos cambios&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;Ultimos cambios&quot;" />
   </component>
   <component name="play_dynamic_filters_status">
     <option name="appIdToCheckInfo">
