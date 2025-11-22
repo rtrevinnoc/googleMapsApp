@@ -21,4 +21,13 @@
   <color name="colorPrimaryDark">#3700B3</color>
   <color name="colorAccent">#03DAC5</color>
   <color name="black">#1C1C1C</color>
+
+  //Ui de chatgpt (tipo Notes de Iphone viejito
+  <color name="notes_background">#FFF7D6</color> <!-- amarillo papel -->
+  <color name="notes_header">#F7E7A0</color>     <!-- barra superior -->
+  <color name="notes_text">#5A4633</color>       <!-- café oscuro para texto -->
+  <color name="notes_line">#E0C68C</color>       <!-- línea separadora -->
+
+
+
 </resources>

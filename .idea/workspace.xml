@@ -10,6 +10,21 @@
           <theme>@style/AppTheme</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/item_note_bg.xml">
+        <config>
+          <theme>@style/AppTheme</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/item_place_bg.xml">
+        <config>
+          <theme>@style/AppTheme</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/notes_button_bg.xml">
+        <config>
+          <theme>@style/AppTheme</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
         <config>
           <theme>@style/AppTheme</theme>
@@ -51,18 +66,18 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68d2c4ed-9f1d-40ae-bb13-1f23e8071488" name="Changes" comment="-Proyecto completo parcialmente.&#10;-Integracion de SavedPlacesActivity.kt, se puede ver lugares por usuario y guardar notas al respecto y si ya fue visitado.">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/google/codelabs/buildyourfirstmap/NotesActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/google/codelabs/buildyourfirstmap/place/Note.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/google/codelabs/buildyourfirstmap/place/NotesAdapter.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_notes.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_note.xml" afterDir="false" />
+    <list default="true" id="68d2c4ed-9f1d-40ae-bb13-1f23e8071488" name="Changes" comment="-Proyecto completo en backend (falto pulir un poco la UI).&#10;Integracion de NotesActivity.kt, usuario puede guardar sus notas de cada lugar como una bitácora de viaje y se guarda en el doc de firestore.">
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/item_note_bg.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/item_place_bg.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/notes_button_bg.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/google/codelabs/buildyourfirstmap/SavedPlacesActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/google/codelabs/buildyourfirstmap/SavedPlacesActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/google/codelabs/buildyourfirstmap/place/Place.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/google/codelabs/buildyourfirstmap/place/Place.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/google/codelabs/buildyourfirstmap/place/PlacesRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/google/codelabs/buildyourfirstmap/place/PlacesRepository.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_notes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_notes.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_saved_places.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_saved_places.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_note.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_note.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_place.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_place.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,6 +123,7 @@
         <option value="valueResourceFile" />
         <option value="layoutResourceFile_vertical" />
         <option value="Kotlin Class" />
+        <option value="resourceFile" />
       </list>
     </option>
   </component>
@@ -373,7 +389,15 @@
       <option name="project" value="LOCAL" />
       <updated>1763786944079</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="-Proyecto completo en backend (falto pulir un poco la UI).&#10;Integracion de NotesActivity.kt, usuario puede guardar sus notas de cada lugar como una bitácora de viaje y se guarda en el doc de firestore.">
+      <option name="closed" value="true" />
+      <created>1763790182286</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1763790182286</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -383,7 +407,8 @@
     <MESSAGE value="-Conexion a firestore&#10;-Se puede guardar diferentes locaciones en el mapa y compartirlas." />
     <MESSAGE value="-Autenticación de ssuarios con Firestore (login y registro).&#10;-Guardar ubicaciones por usuarios.&#10;-CRUD de ubicaciones." />
     <MESSAGE value="-Proyecto completo parcialmente.&#10;-Integracion de SavedPlacesActivity.kt, se puede ver lugares por usuario y guardar notas al respecto y si ya fue visitado." />
-    <option name="LAST_COMMIT_MESSAGE" value="-Proyecto completo parcialmente.&#10;-Integracion de SavedPlacesActivity.kt, se puede ver lugares por usuario y guardar notas al respecto y si ya fue visitado." />
+    <MESSAGE value="-Proyecto completo en backend (falto pulir un poco la UI).&#10;Integracion de NotesActivity.kt, usuario puede guardar sus notas de cada lugar como una bitácora de viaje y se guarda en el doc de firestore." />
+    <option name="LAST_COMMIT_MESSAGE" value="-Proyecto completo en backend (falto pulir un poco la UI).&#10;Integracion de NotesActivity.kt, usuario puede guardar sus notas de cada lugar como una bitácora de viaje y se guarda en el doc de firestore." />
   </component>
   <component name="play_dynamic_filters_status">
     <option name="appIdToCheckInfo">

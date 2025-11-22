@@ -1,12 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
+    android:padding="8dp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/notes_background">
 
+    <!-- Título opcional -->
+    <TextView
+        android:id="@+id/txtSavedPlacesTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mis Lugares Guardados"
+        android:textColor="@color/notes_text"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:padding="6dp"
+        android:background="@color/notes_header"/>
+
+    <!-- RecyclerView necesario para SavedPlacesActivity -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerPlaces"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingTop="8dp"/>
 </LinearLayout>
