@@ -131,7 +131,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
                     mMap.animateCamera(CameraUpdateFactory.newLatLngBounds(bounds, 100))
                 }
 
-                mMap.setInfoWindowAdapter(MarkerPopupAdapter(this@MainActivity))
+                mMap.setInfoWindowAdapter(MarkerPopupAdapter(this@MainActivity, lifecycleScope))
             } catch (e: Exception) {
                 Log.e("FirebasePlaces", "Error al cargar lugares", e)
                 Toast.makeText(this@MainActivity, "Error al cargar lugares", Toast.LENGTH_SHORT).show()
