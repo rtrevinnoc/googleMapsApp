@@ -17,15 +17,26 @@ package com.google.codelabs.buildyourfirstmap.place
 import com.google.android.gms.maps.model.LatLng
 import kotlinx.serialization.Serializable
 
-@Serializable
 data class Place(
-    val id: String = "",              // ID
-    val name: String = "",            // Nombre del lugar
-    val address: String = "",         // Dirección
-    val lat: Double = 0.0,            // Latitud
-    val lng: Double = 0.0,            // Longitud
-    var rating: Float = 0f            // Promedio de rating actual
+    val id: String = "",
+    val name: String = "",
+    val latLng: LatLng = LatLng(0.0, 0.0),
+    val address: String = "",
+    var rating: Float = 0f
 ) {
-    val latLng: LatLng
-        get() = LatLng(lat, lng)
+    // Constructor secundario para compatibilidad con Firestore
+    constructor() : this("", "", LatLng(0.0, 0.0), "", 0f)
+
+    // Convertir a Map para Firestore
+    fun toMap(): Map<String, Any> {
+        return mapOf(
+            "name" to name,
+            "latLng" to mapOf(
+                "latitude" to latLng.latitude,
+                "longitude" to latLng.longitude
+            ),
+            "address" to address,
+            "rating" to rating
+        )
+    }
 }

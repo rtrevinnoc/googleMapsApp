@@ -1,4 +1,4 @@
-package com.fcfm.agosto.aplicacionesmoviles
+package com.google.codelabs.buildyourfirstmap
 
 import android.content.Intent
 import android.os.Bundle
