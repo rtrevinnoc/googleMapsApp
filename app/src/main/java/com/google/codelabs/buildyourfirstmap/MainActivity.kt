@@ -65,6 +65,14 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
         }
+
+        val savedBtn = findViewById<Button>(R.id.btnSavedPlaces)
+        savedBtn.setOnClickListener {
+            startActivity(Intent(this, SavedPlacesActivity::class.java))
+        }
+
+
+
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
@@ -251,4 +259,8 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         }
         startActivity(Intent.createChooser(intent, "Compartir lugar"))
     }
+
+
+
+
 }

@@ -15,5 +15,6 @@
 -->
 
 <resources>
-  <string name="app_name">DiaryMap</string>
+    <string name="app_name">DiaryMap</string>
+    <string name="title_activity_saved_places">SavedPlacesActivity</string>
 </resources>

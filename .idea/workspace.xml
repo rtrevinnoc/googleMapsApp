@@ -20,6 +20,16 @@
           <theme>@style/AppTheme</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_saved_places.xml">
+        <config>
+          <theme>@style/AppTheme</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/item_place.xml">
+        <config>
+          <theme>@style/AppTheme</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/marker_popup.xml">
         <config>
           <theme>@style/AppTheme</theme>
@@ -31,18 +41,24 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68d2c4ed-9f1d-40ae-bb13-1f23e8071488" name="Changes" comment="-Conexion a firestore&#10;-Se puede guardar diferentes locaciones en el mapa y compartirlas.">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/google/codelabs/buildyourfirstmap/LoginActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" afterDir="false" />
+    <list default="true" id="68d2c4ed-9f1d-40ae-bb13-1f23e8071488" name="Changes" comment="-Autenticación de ssuarios con Firestore (login y registro).&#10;-Guardar ubicaciones por usuarios.&#10;-CRUD de ubicaciones.">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/google/codelabs/buildyourfirstmap/SavedPlacesActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/google/codelabs/buildyourfirstmap/place/PlacesAdapter.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/google/codelabs/buildyourfirstmap/ui/theme/Color.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/google/codelabs/buildyourfirstmap/ui/theme/Theme.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/google/codelabs/buildyourfirstmap/ui/theme/Type.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_saved_places.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_place.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deviceManager.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deviceManager.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/google/codelabs/buildyourfirstmap/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/google/codelabs/buildyourfirstmap/MainActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/google/codelabs/buildyourfirstmap/place/Place.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/google/codelabs/buildyourfirstmap/place/Place.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/google/codelabs/buildyourfirstmap/place/PlacesRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/google/codelabs/buildyourfirstmap/place/PlacesRepository.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +68,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=LocalEmulator, isTemplate=false, identifier=path=C:\Users\acman\.android\avd\Medium_Phone_2.avd)]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -69,7 +85,12 @@
         </task>
         <projects_view>
           <tree_state>
-            <expand />
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="BuildYourFirstMap" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
             <select />
           </tree_state>
         </projects_view>
@@ -79,9 +100,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="layoutResourceFile_vertical" />
         <option value="Kotlin File" />
         <option value="valueResourceFile" />
+        <option value="layoutResourceFile_vertical" />
         <option value="Kotlin Class" />
       </list>
     </option>
@@ -137,6 +158,11 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;AndroidSdkUpdater&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="android.template.1440898197">
+      <recent name="com.google.codelabs.buildyourfirstmap" />
+    </key>
+  </component>
   <component name="RunManager" selected="Android App.app">
     <configuration name="MainActivity" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false" temporary="true">
       <module name="BuildYourFirstMap.app" />
@@ -320,7 +346,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762575482517</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="-Autenticación de ssuarios con Firestore (login y registro).&#10;-Guardar ubicaciones por usuarios.&#10;-CRUD de ubicaciones.">
+      <option name="closed" value="true" />
+      <created>1763185714559</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1763185714559</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -328,19 +362,20 @@
     <MESSAGE value="Commit Inicial Tarea" />
     <MESSAGE value="Configuración inicial para conectarse con la api de google y mostrar el mapa." />
     <MESSAGE value="-Conexion a firestore&#10;-Se puede guardar diferentes locaciones en el mapa y compartirlas." />
-    <option name="LAST_COMMIT_MESSAGE" value="-Conexion a firestore&#10;-Se puede guardar diferentes locaciones en el mapa y compartirlas." />
+    <MESSAGE value="-Autenticación de ssuarios con Firestore (login y registro).&#10;-Guardar ubicaciones por usuarios.&#10;-CRUD de ubicaciones." />
+    <option name="LAST_COMMIT_MESSAGE" value="-Autenticación de ssuarios con Firestore (login y registro).&#10;-Guardar ubicaciones por usuarios.&#10;-CRUD de ubicaciones." />
   </component>
   <component name="play_dynamic_filters_status">
     <option name="appIdToCheckInfo">
       <map>
         <entry key="com.google.codelabs.buildyourfirstmap">
           <value>
-            <CheckInfo lastCheckTimestamp="1763178263583" />
+            <CheckInfo lastCheckTimestamp="1763782467298" />
           </value>
         </entry>
         <entry key="com.google.codelabs.buildyourfirstmap.test">
           <value>
-            <CheckInfo lastCheckTimestamp="1763178263585" />
+            <CheckInfo lastCheckTimestamp="1763782467291" />
           </value>
         </entry>
       </map>
