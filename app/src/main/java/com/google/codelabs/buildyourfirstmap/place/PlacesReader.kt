@@ -51,7 +51,8 @@ class PlacesReader(private val context: Context) {
             "rating" to rating
         )
 
-        db.collection(R.string.placesFirestore.toString())
+
+        db.collection(context.getString(R.string.placesFirestore))
             .add(placeMap);
     }
 }

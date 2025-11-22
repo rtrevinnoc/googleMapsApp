@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="com.fcfm.agosto.aplicacionesmoviles" />
-                  <option name="mobileSdkAppId" value="1:766813132621:android:73844b4891fb320f1e4904" />
-                  <option name="projectId" value="aplicaciones-moviles-2025-fcfm" />
-                  <option name="projectNumber" value="766813132621" />
+                  <option name="appId" value="PLACEHOLDER" />
+                  <option name="mobileSdkAppId" value="" />
+                  <option name="projectId" value="" />
+                  <option name="projectNumber" value="" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

@@ -1,21 +1,17 @@
 package com.google.codelabs.buildyourfirstmap.scores
 
 import android.content.Context
-import com.fcfm.agosto.aplicacionesmoviles.scores.Score
-import com.google.codelabs.buildyourfirstmap.scores.R
+import com.google.codelabs.buildyourfirstmap.R
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.RequestBody.Companion.toRequestBody
-import okhttp3.ResponseBody
-class ScoresReader(context: Context) {
+class ScoresReader(private val context: Context) {
 
-    //private val sheetUrl = "https://script.google.com/macros/s/AKfycbxbDA9n-LPheBKIit7z2iW7D0mqx741ydMNboRgIack7EZ1mT7tZ2VDo1hXGStpOopPOA/exec".toString()
-
-    private val sheetUrl = R.string.scoresSheetUrl.toString()
-    private val client = OkhttpClient()
-    private val json = Json { ignoreUnknowKeys = true }
+    private val sheetUrl = context.getString(R.string.scoresSheetUrl)
+    private val client = OkHttpClient()
+    private val json = Json { ignoreUnknownKeys = true }
 
     fun doGet(): Float {
         val request = Request.Builder()
@@ -23,11 +19,11 @@ class ScoresReader(context: Context) {
             .build()
 
         client.newCall(request).execute().use { response ->
-            return response.body.toString().toFloat()
+            return response.body.toString().toFloat()//json.decodeFromString<List<Score>>(response.body.toString())
         }
     }
 
-    fun doPost(score: com.fcfm.agosto.aplicacionesmoviles.scores.Score): Float {
+    fun doPost(score: Score): Float {
         val jsonString = json.encodeToString<Score>(score)
         val body = jsonString.toRequestBody("application/json".toMediaType())
 
