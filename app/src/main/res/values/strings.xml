@@ -23,4 +23,5 @@
   <string name="reducir_rating">Reducir rating</string>
   <string name="scoresSheetUrl">https://script.google.com/macros/s/AKfycbzAdqPq7hbCiR-Ihv_ydb051QFlbwNYu6x415vJGV6AV-1U-CVQZCtAGo5tly7wnjJ6/exec</string>
   <string name="placesFirestore">places</string>
+  <string name="perfil">Perfil</string>
 </resources>

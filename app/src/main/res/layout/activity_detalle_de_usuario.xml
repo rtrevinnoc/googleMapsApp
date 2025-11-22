@@ -8,30 +8,31 @@
     tools:context=".DetalleDeUsuario">
 
     <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/mainToolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
         android:minHeight="22dp"
-        android:id="@+id/mainToolbar"
         android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:title="Información de Usuario"
         app:titleCentered="true"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:background="@color/colorPrimary"
         app:titleTextColor="@color/design_default_color_background"
-        >
+        app:navigationIcon="@drawable/baseline_logout_24"
+        app:navigationIconTint="@color/design_default_color_background">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/signOut"
+            style="@style/Widget.Material3.Button.IconButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/Widget.Material3.Button.IconButton"
-            app:icon="@drawable/baseline_logout_24"
+            android:layout_gravity="end"
             android:contentDescription="perfil"
-            android:layout_gravity="right"
-            app:iconTint="@color/design_default_color_background"
-            />
+            app:icon="@drawable/baseline_expand_more_24"
+            app:iconTint="@color/design_default_color_background" />
 
     </com.google.android.material.appbar.MaterialToolbar>
 
@@ -39,28 +40,26 @@
         android:id="@+id/profilePicture"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:layout_gravity="center"
         android:contentDescription="foto de perfil"
         android:src="@drawable/baseline_person_24"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_gravity="center"
         app:layout_constraintTop_toBottomOf="@id/mainToolbar"
-        app:layout_constraintVertical_bias="0.325" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
 
     <TextView
         android:id="@+id/username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
+        tools:text="Some Username"
         app:layout_constraintTop_toBottomOf="@id/profilePicture"
-        app:layout_constraintVertical_bias="0.211"
-        tools:text="Some Username" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

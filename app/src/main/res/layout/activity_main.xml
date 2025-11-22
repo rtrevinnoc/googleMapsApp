@@ -28,8 +28,8 @@
             android:layout_height="wrap_content"
             style="@style/Widget.Material3.Button.IconButton"
             app:icon="@drawable/baseline_person_24"
-            android:contentDescription="perfil"
-            android:layout_gravity="right"
+            android:contentDescription="@string/perfil"
+            android:layout_gravity="end"
             app:iconTint="@color/design_default_color_background"
             />
 
