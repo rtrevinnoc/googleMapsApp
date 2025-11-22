@@ -9,7 +9,7 @@
 
 
         android:icon="@mipmap/ic_launcher"
-        android:label="Test Map App"
+        android:label="MemoriesMap"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"

@@ -34,11 +34,19 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
     // marcador temporal para selección de ubicación
     private var pickMarker: Marker? = null
 
+    // Coordenadas iniciales para el modo selección (vienen del formulario o default Monterrey)
+    private var pickInitialLat: Double = Double.NaN
+    private var pickInitialLng: Double = Double.NaN
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         isPickingLocation = intent.getBooleanExtra("pick_location", false)
+
+        // Leer coordenadas iniciales del formulario (si existen)
+        pickInitialLat = intent.getDoubleExtra("initial_lat", Double.NaN)
+        pickInitialLng = intent.getDoubleExtra("initial_lng", Double.NaN)
 
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
@@ -47,8 +55,10 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         // Botón para agregar memoria desde la posición actual de la cámara (o por defecto)
         val addBtn = findViewById<Button>(R.id.button_add_memory)
         val confirmBtn = findViewById<Button>(R.id.button_confirm_location)
+        val cancelBtn = findViewById<Button>(R.id.button_cancel_selection)
         // inicialmente oculto; se mostrará si estamos en modo selección
         confirmBtn.visibility = View.GONE
+        cancelBtn.visibility = View.GONE
 
         addBtn.setOnClickListener {
             val defaultPos = LatLng(25.6866, -100.3161)
@@ -72,6 +82,12 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
                 finish()
             }
         }
+
+        // Si el usuario pulsa cancelar, simplemente cerramos la actividad sin resultado
+        cancelBtn.setOnClickListener {
+            setResult(Activity.RESULT_CANCELED)
+            finish()
+        }
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
@@ -82,22 +98,35 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 
         val monterrey = LatLng(25.6866, -100.3161)
 
-        mMap.addMarker(MarkerOptions().position(monterrey).title("Marcador en Monterrey"))
+        //mMap.addMarker(MarkerOptions().position(monterrey).title("Marcador en Monterrey"))
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(monterrey, 10f))
 
         // Si estamos en modo "pick location", configuramos marcador draggable de color distinto
         if (isPickingLocation) {
+            // ocultar botón agregar
+            val addBtn = findViewById<Button>(R.id.button_add_memory)
+            addBtn.visibility = View.GONE
+
             // mostrar botón confirmar
             val confirmBtn = findViewById<Button>(R.id.button_confirm_location)
             confirmBtn.visibility = View.VISIBLE
 
-            // posición inicial: centro de la cámara (o Monterrey si no hay)
-            val initPos = mMap.cameraPosition?.target ?: monterrey
+            // mostrar boton cancelar
+            val cancelBtn = findViewById<Button>(R.id.button_cancel_selection)
+            cancelBtn.visibility = View.VISIBLE
+
+            // posición inicial: usar las coordenadas del formulario si existen, sino Monterrey
+            val initPos = if (!pickInitialLat.isNaN() && !pickInitialLng.isNaN()) {
+                LatLng(pickInitialLat, pickInitialLng)
+            } else {
+                monterrey
+            }
+
             // crear marcador draggable con color distinto
             pickMarker = mMap.addMarker(
                 MarkerOptions()
                     .position(initPos)
-                    .title("Arrastra para elegir ubicación")
+                    .title("Selecciona una ubicación")
                     .draggable(true)
                     .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
             )

@@ -45,6 +45,9 @@ class AddMemoryActivity : AppCompatActivity() {
         pickLocationBtn.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java).apply {
                 putExtra("pick_location", true)
+                // Pasar las coordenadas actuales del formulario como posición inicial
+                putExtra("initial_lat", lat)
+                putExtra("initial_lng", lng)
             }
             startActivityForResult(intent, REQUEST_PICK_LOCATION)
         }

@@ -12,12 +12,16 @@
         android:layout_height="match_parent" />
 
     <!-- Botón agregado para crear una nueva memoria -->
+    <!-- ...existing code... -->
+
+    <!-- Botón "+" centrado abajo -->
     <Button
         android:id="@+id/button_add_memory"
         android:layout_width="56dp"
         android:layout_height="56dp"
-        android:layout_gravity="top|end"
-        android:layout_margin="16dp"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/add_memory_btn"
         android:backgroundTint="@color/colorPrimary"
         android:text="+"
         android:textColor="@android:color/white"
@@ -32,6 +36,18 @@
         android:layout_margin="16dp"
         android:backgroundTint="@color/colorPrimary"
         android:text="Confirmar ubicación"
+        android:textColor="@android:color/white"
+        android:visibility="gone" />
+
+    <!--    Boton para cancelar -->
+    <Button
+        android:id="@+id/button_cancel_selection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|start"
+        android:layout_margin="16dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:text="Cancelar"
         android:textColor="@android:color/white"
         android:visibility="gone" />
 

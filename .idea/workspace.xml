@@ -5,6 +5,11 @@
       <config />
     </shared>
     <layouts>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/add_memory_btn.xml">
+        <config>
+          <theme>@style/AppTheme</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_add_memory.xml">
         <config>
           <theme>@style/AppTheme</theme>
@@ -31,12 +36,14 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68d2c4ed-9f1d-40ae-bb13-1f23e8071488" name="Changes" comment="updated and merged changes of main">
+    <list default="true" id="68d2c4ed-9f1d-40ae-bb13-1f23e8071488" name="Changes" comment="Algunas mejoras generales&#10;&#10;- Se cambio la manera en que se pone el localizador en los recuerdos&#10;- Ahora se pueden ver las iamgenes en los recuerdos ya puestos">
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/add_memory_btn.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/google/codelabs/buildyourfirstmap/AddMemoryActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/google/codelabs/buildyourfirstmap/AddMemoryActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/google/codelabs/buildyourfirstmap/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/google/codelabs/buildyourfirstmap/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_add_memory.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_add_memory.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/dialog_memory_detail.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/dialog_memory_detail.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,6 +89,7 @@
         <option value="Kotlin File" />
         <option value="valueResourceFile" />
         <option value="Class" />
+        <option value="resourceFile" />
       </list>
     </option>
   </component>
@@ -118,25 +126,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Android App.MainActivity.executor": "Run",
-    "Android App.app.executor": "Run",
-    "Gradle.Upgrade Gradle wrapper.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.readMode.enableVisualFormatting": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "sustaita2104791",
-    "ignore.virus.scanning.warn.message": "true",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Android App.MainActivity.executor&quot;: &quot;Run&quot;,
+    &quot;Android App.app.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Upgrade Gradle wrapper.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;sustaita2104791&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Android App.MainActivity">
     <configuration name="MainActivity" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false" temporary="true">
       <module name="BuildYourFirstMap.app" />
@@ -320,7 +328,15 @@
       <option name="project" value="LOCAL" />
       <updated>1763154358781</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Algunas mejoras generales&#10;&#10;- Se cambio la manera en que se pone el localizador en los recuerdos&#10;- Ahora se pueden ver las iamgenes en los recuerdos ya puestos">
+      <option name="closed" value="true" />
+      <created>1763155892519</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1763155892519</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -351,19 +367,20 @@
     <MESSAGE value="Primer build de función de recuerdos&#10;&#10;- Boton para agregar recuerdos&#10;- En los recuerdos se pueden adjuntar imagenes, titulo, descripcion, lugar y fecha&#10;- Opcion para ver recuerdos ya puestos" />
     <MESSAGE value="Primer build de función de recuerdos&#10;&#10;- Boton para agregar recuerdos&#10;- En los recuerdos se pueden adjuntar imagenes, titulo, descripcion, lugar y fecha&#10;- Opcion para ver recuerdos ya puestos" />
     <MESSAGE value="updated and merged changes of main" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated and merged changes of main" />
+    <MESSAGE value="Algunas mejoras generales&#10;&#10;- Se cambio la manera en que se pone el localizador en los recuerdos&#10;- Ahora se pueden ver las iamgenes en los recuerdos ya puestos" />
+    <option name="LAST_COMMIT_MESSAGE" value="Algunas mejoras generales&#10;&#10;- Se cambio la manera en que se pone el localizador en los recuerdos&#10;- Ahora se pueden ver las iamgenes en los recuerdos ya puestos" />
   </component>
   <component name="play_dynamic_filters_status">
     <option name="appIdToCheckInfo">
       <map>
         <entry key="com.google.codelabs.buildyourfirstmap">
           <value>
-            <CheckInfo lastCheckTimestamp="1763152510507" />
+            <CheckInfo lastCheckTimestamp="1763701871179" />
           </value>
         </entry>
         <entry key="com.google.codelabs.buildyourfirstmap.test">
           <value>
-            <CheckInfo lastCheckTimestamp="1763152510506" />
+            <CheckInfo lastCheckTimestamp="1763701871182" />
           </value>
         </entry>
       </map>
