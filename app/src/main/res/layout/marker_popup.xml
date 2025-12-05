@@ -1,85 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:gravity="center_horizontal"
-    android:padding="8dp">
+    android:orientation="vertical"
+    android:padding="12dp">
 
     <TextView
         android:id="@+id/marker_popup_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
+        android:text="Nombre del lugar"
         android:textStyle="bold"
-        tools:text="Title" />
+        android:textColor="@android:color/black"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/marker_popup_address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="12sp"
-        tools:text="Some Address" />
+        android:layout_marginTop="2dp"
+        android:text="Dirección del lugar"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="13sp" />
 
-    <!--<TextView
+    <TextView
         android:id="@+id/marker_popup_rating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="12sp"
-        tools:text="Some Rating" />-->
+        android:layout_marginTop="4dp"
+        android:text="Puntuación promedio: -"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="14sp" />
 
-    <NumberPicker
-        android:id="@+id/marker_popup_rating"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        />
 
-    <!--<androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="4dp">
-
-        <Button
-            android:id="@+id/addScore"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/addScore"
-            android:textColor="@color/white"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@id/increaseScore"/>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/increaseScore"
-            style="@style/Widget.Material3.Button.IconButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/incrementar_rating"
-            android:visibility="visible"
-            app:backgroundTint="#C5C4C4"
-            app:icon="@drawable/baseline_expand_less_24"
-            app:layout_constraintBottom_toTopOf="@id/reduceScore"
-            app:layout_constraintLeft_toRightOf="@id/addScore"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/reduceScore"
-            style="@style/Widget.Material3.Button.IconButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/reducir_rating"
-            app:backgroundTint="#C5C4C4"
-            app:icon="@drawable/baseline_expand_more_24"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/addScore"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/increaseScore" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>-->
 
 </LinearLayout>
+
